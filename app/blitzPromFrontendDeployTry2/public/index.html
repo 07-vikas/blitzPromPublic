@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:wght@625&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Emilys+Candy&family=Iceberg&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:wght@625&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+
+
+            overflow-y: scroll;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .emails-p a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .inknut-antiqua-light {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-regular {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-medium {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-semibold {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-bold {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-extrabold {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .inknut-antiqua-black {
+            font-family: "Inknut Antiqua", serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+
+
+        /* loginPage.html */
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: rebeccapurple;
+        }
+
+
+        .main-div {
+            width: 100%;
+            height: 2000px;
+            max-width: 450px;
+
+
+            background-image: url('./homepage-background-pic.png');
+            background-size: center;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .navbar .timer-div {
+            width: 35%;
+            height: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        /* .navbar .timer {
+                width: 100%;
+                font-size: 3rem;
+                margin-bottom: 20px;
+            } */
+
+        .navbar .message {
+            width: 100%;
+            height: 25px;
+            font-size: 0.8rem;
+            color: #ffffff;
+            font-weight: 600;
+
+            background: linear-gradient(90deg, rgb(225, 80, 218), rgb(128, 128, 128), rgb(155, 52, 251));
+            border: 1px solid white;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-left: 10px;
+
+            font-family: "Playfair Display", serif;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 50%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .navbar li {
+            width: 35%;
+            height: 23%;
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .navbar ul .signup-li {
+            background-color: rgb(255, 79, 237);
+            color: rgb(0, 0, 0);
+
+            font-family: "Inknut Antiqua", serif;
+        }
+
+        .navbar ul .login-li {
+            background-color: blueviolet;
+            color: rgb(0, 0, 0);
+
+            font-family: "Inknut Antiqua", serif;
+        }
+
+        .navbar ul .signup-li a {
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar ul .login-li a {
+            color: rgb(255, 255, 255);
+
+        }
+
+        .main-div .main-div1 {
+            width: 100%;
+            height: 6%;
+
+            text-align: center;
+        }
+
+        .main-div .main-div1 h2 {
+            font-size: 2.75rem;
+            color: rgb(128, 25, 121);
+            margin-top: 156%;
+            transform: scaleY(1.75);
+            font-family: "Playfair Display", serif;
+            /* text-shadow: 5px 5px 10px rgb(63, 23, 119); */
+        }
+
+
+
+        .main-div .main-div2 {
+            width: 100%;
+            height: 37%;
+
+            font-family: "Emilys Candy", serif;
+            /* border: 2px solid white; */
+        }
+
+        .main-div .main-div2 .quote-div1 {
+            width: 80%;
+            height: 22%;
+
+            margin-left: 13%;
+            margin-top: 13%;
+
+            border: 1px solid black;
+            border-radius: 15px;
+
+            box-shadow: 8px 9px 5px black;
+
+            background-color: pink;
+
+            /* color: white; */
+            overflow: hidden;
+        }
+
+        .main-div .main-div2 .quote-div1 .commas:first-of-type {
+            margin-top: 7px;
+            padding-left: 10px;
+        }
+
+        .main-div .main-div2 .quote-div1 .commas:last-of-type {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .main-div .main-div2 .quote-div1 .commas {
+            color: black;
+            font-size: 2.5rem;
+
+            font-weight: 100;
+
+        }
+
+        .main-div .main-div2 .quote-div1 .text {
+            color: black;
+            width: 85%;
+            text-align: center;
+            margin-left: 8%;
+            font-size: 1.35rem;
+        }
+
+        .main-div .main-div2 .quote-div2 {
+            width: 70%;
+            height: 19%;
+
+            margin-left: 3%;
+            margin-top: 17%;
+
+            border: 1px solid black;
+            border-radius: 12px;
+
+            box-shadow: 6px 7px 4px black;
+
+            background-color: pink;
+
+            /* color: white; */
+            overflow: hidden;
+        }
+
+        .main-div .main-div2 .quote-div2 .commas:first-of-type {
+            margin-top: 5px;
+            padding-left: 10px;
+        }
+
+        .main-div .main-div2 .quote-div2 .commas:last-of-type {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .main-div .main-div2 .quote-div2 .commas {
+            color: black;
+            font-size: 2.1rem;
+
+            font-weight: 100;
+
+        }
+
+        .main-div .main-div2 .quote-div2 .text {
+            color: black;
+            width: 90%;
+            text-align: center;
+            margin-left: 5%;
+            margin-bottom: 5px;
+            font-size: 1.175rem;
+        }
+
+        .main-div .main-div2 .quote-div3 {
+            width: 45%;
+            height: 13%;
+
+            margin-left: 48%;
+            margin-top: 15%;
+
+            border: 1px solid black;
+            border-radius: 15px;
+
+            box-shadow: -4px 5px 3px black;
+
+            background-color: pink;
+
+            /* color: white; */
+            overflow: hidden;
+        }
+
+        .main-div .main-div2 .quote-div3 .commas:first-of-type {
+            margin-top: 1px;
+            padding-left: 10px;
+        }
+
+        .main-div .main-div2 .quote-div3 .commas:last-of-type {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .main-div .main-div2 .quote-div3 .commas {
+            color: black;
+            font-size: 1.5rem;
+
+            font-weight: 100;
+
+        }
+
+        .main-div .main-div2 .quote-div3 .text {
+            color: black;
+            width: 90%;
+            text-align: left;
+            margin-left: 9%;
+            font-size: 1rem;
+
+        }
+
+        .main-div .main-div2 .quote-div4 {
+            width: 35%;
+            height: 9%;
+
+            margin-left: 5%;
+            margin-top: 11%;
+
+            border: 1px solid black;
+            border-radius: 15px;
+
+            box-shadow: 3px 4px 3px black;
+
+            background-color: pink;
+
+            /* color: white; */
+            overflow: hidden;
+        }
+
+        .main-div .main-div2 .quote-div4 .commas:first-of-type {
+            margin-top: -2px;
+            padding-left: 8px;
+        }
+
+        .main-div .main-div2 .quote-div4 .commas:last-of-type {
+            text-align: right;
+            padding-right: 10px;
+            padding-bottom: 1px;
+        }
+
+        .main-div .main-div2 .quote-div4 .commas {
+            color: black;
+            font-size: 1rem;
+
+            font-weight: 100;
+
+        }
+
+        .main-div .main-div2 .quote-div4 .text {
+            color: black;
+            width: 90%;
+            text-align: left;
+            margin-left: 7%;
+            font-size: 0.8rem;
+
+        }
+
+
+        .main-div .footer-div {
+            width: 100%;
+            height: 40%;
+
+            background-color: black;
+            color: rgb(255, 255, 255);
+        }
+
+        .footer-div h2 {
+            width: 100%;
+            height: 10%;
+            font-size: 3rem;
+            text-align: center;
+            padding-top: 13%;
+            margin-bottom: 2%;
+            /* font-family: "Iceberg", serif; */
+            font-family: "Bebas Neue", serif;
+            transform: scaleY(1.75);
+
+        }
+
+        .footer-div .image-div {
+            width: 100%;
+            height: 25%;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .footer-div .image-div>div {
+            border-radius: 15px;
+
+            width: 45%;
+            height: 85%;
+        }
+
+        .footer-div .image-div .kunal {
+            background-image: url('./kunal-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .footer-div .image-div .vikas {
+            background-image: url('./vikas-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .footer-div .usernames-p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 20%;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffc371, rgb(200, 61, 255), #ff7eb3, #ff758c, #ffc371, rgb(200, 61, 255), rgb(200, 61, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-div .usernames-p a:first-of-type {
+            margin-left: 8%;
+            color: rgb(255, 255, 255);
+        }
+
+        .footer-div .usernames-p a:last-of-type {
+            margin-right: 13%;
+            color: rgb(255, 255, 255);
+
+        }
+
+        .footer-div .note {
+            width: 80%;
+            height: 30px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: rgb(163, 163, 163);
+            margin-bottom: 5%;
+
+            padding-left: 10%;
+        }
+
+        .footer-div .input-div {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 15%;
+
+        }
+
+        .footer-div .input-div input {
+            all: unset;
+            height: 80%;
+            width: 70%;
+            border: 1px solid grey;
+            border-radius: 10px;
+            background-color: beige;
+            padding-left: 10px;
+            margin-right: 10px;
+            font-size: 0.9rem;
+
+            color: rgb(0, 0, 0);
+
+        }
+
+        .footer-div .input-div button {
+            all: unset;
+        }
+
+        .footer-div .input-div i {
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+
+        }
+
+        .footer-div h3 {
+            width: 100%;
+            height: 8%;
+            font-size: 2rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            /* font-family: "Iceberg", serif; */
+            font-family: "Bebas Neue", serif;
+            transform: scaleY(1.75);
+            /* Stretch the text vertically */
+
+        }
+
+        .footer-div .emails-p {
+            width: 100%;
+            height: 5%;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 15%;
+        }
+
+
+        .footer-div .copyright-note {
+            width: 100%;
+            height: 0.1%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main-div">
+
+        <div class="navbar">
+            <div class="timer-div">
+                <!-- <div class="timer">00d 00h 00m 00s</div> -->
+                <div class="message"></div>
+            </div>
+
+            <ul>
+                <li class="signup-li"><a href="./signupPage.html">SignUp</a></li>
+                <li class="login-li"><a href="./loginPage.html">Login</a></li>
+            </ul>
+        </div>
+
+        <div class="main-div1">
+            <h2>BLITZ PROM</h2>
+        </div>
+
+        <div class="main-div2">
+            <div class="quote-div1">
+                <p class="commas"> ❝</p>
+                <p class="text">The first Prom website in the history of MNIT.</p>
+                <p class="commas">❞</p>
+            </div>
+            <div class="quote-div2">
+                <p class="commas"> ❝</p>
+                <p class="text">Find your perfect match, no algorithms, just sparks.</p>
+                <p class="commas">❞</p>
+            </div>
+            <div class="quote-div3">
+                <p class="commas"> ❝</p>
+                <p class="text">Let's turn crushing into dancing.</p>
+                <p class="commas">❞</p>
+            </div>
+            <div class="quote-div4">
+                <p class="commas"> ❝</p>
+                <p class="text">Let's turn crushing into dancing.</p>
+                <p class="commas">❞</p>
+            </div>
+        </div>
+
+        <div class="footer-div">
+            <h2>FOUNDERS</h2>
+            <div class="image-div">
+                <div class="kunal">
+
+                </div>
+                <div class="vikas">
+
+                </div>
+            </div>
+            <p class="usernames-p">
+                <a href="https://www.instagram.com/that_relatable_kunal" target="_blank">@kunal8thapliyal</a>
+                <a href="https://www.instagram.com/_._vikas.07" target="_blank">@_._vikas.07</a>
+            </p>
+
+            <p class="note">NOTE:For any inconvenience, kindly reach us at the credentials given below.</p>
+            <!-- <form class="input-div">
+                <input placeholder="Enter your query or issue !" type="text">
+                <button><i class="fa-solid fa-paper-plane"></i></button>
+            </form> -->
+            <form class="input-div" action="https://formspree.io/f/mdkolzdv" method="post" id="contactForm" class="form"
+                data-form>
+                <input type="text" name="query" class="form-input" placeholder="Full name" required data-form-input>
+                <!-- <input id="queryInput" placeholder="Enter your query or issue !" type="text"> -->
+                <button class="form-btn" id="submitBtn" type="submit" data-form-btn><i
+                        class="fa-solid fa-paper-plane"></i></button>
+            </form>
+            <h3>CONTACT US</h3>
+            <p class="emails-p">
+                <a href="mailto:2023uee1511@mnit.ac.in">2023uee1511@mnit.ac.in</a>
+                <a href="mailto:2023uee2010@mnit.ac.in">2023uee2010@mnit.ac.in</a>
+            </p>
+
+            <p class="copyright-note">2025 Blitz Prom. All rights reserved.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+
+
+
+
+
+        const targetDate = new Date('February 6, 2025 18:00:00').getTime(); // 6th Feb at 6:00 PM
+        // document.querySelector('.navbar .message').textContent = "The time has come!";
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDifference = targetDate - now;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.querySelector('.navbar .message').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // if (timeDifference > 0) {
+            //     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            //     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            //     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            //     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            //     document.querySelector('.navbar .timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            // }
+            // else {
+            //     clearInterval(countdownInterval);
+            //     document.querySelector('.navbar .timer').textContent = "00d 00h 00m 00s";
+            // }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initialize the countdown
+        updateCountdown();
+
+
+
+
+        // Array of flirty texts
+        const flirtyTexts2 = [
+            "Love at first sight? Or should I walk by again?",
+            "No math, no logic, just pure chemistry.",
+            "Your vibe, my vibe—let's make sparks fly.",
+            "No filters, just pure, unfiltered magic.",
+            "Eyes meet, hearts race—let's keep it simple.",
+            "Swipe right on destiny, no apps required.",
+            "Your spark is all the match I need.",
+            "No algorithms, just hearts in perfect sync.",
+            "Forget the rules, let's rewrite love's game.",
+            "No formulas, just two hearts finding home."
+        ];
+
+        const flirtyTexts3 = [
+            "Crushes are fine, but we’re better.",
+            "Dancing through life sounds perfect, no?",
+            "You bring the spark; I’ll bring fire.",
+            "Your smile could start a love story.",
+            "Every glance feels like a heart race.",
+            "If sparks fly, let’s call it destiny.",
+            "Why just crush? Let’s make it magic.",
+            "Fate brought us here, let’s not wait.",
+            "I never believed in sparks until you.",
+        ];
+
+        const flirtyTexts4 = [
+            "Crushes are fine, but we’re better.",
+            "You bring the spark; I’ll bring fire.",
+            "Your smile could start a love story.",
+            "Every glance feels like a heart race.",
+            "If sparks fly, let’s call it destiny.",
+            "Why just crush? Let’s make it magic.",
+            "Fate brought us here, let’s not wait.",
+            "I never believed in sparks until you.",
+        ];
+
+        const textElement2 = document.querySelector(".main-div2 .quote-div2 .text");
+        const textElement3 = document.querySelector(".main-div2 .quote-div3 .text");
+        const textElement4 = document.querySelector(".main-div2 .quote-div4 .text");
+
+
+        document.querySelector(".main-div2 .quote-div1").addEventListener("click", (e) => {
+            e.preventDefault();
+        });
+
+        document.querySelector(".main-div2 .quote-div2").addEventListener("click", (e) => {
+            e.preventDefault();
+            const randomText = flirtyTexts2[Math.floor(Math.random() * flirtyTexts2.length)];
+            textElement2.textContent = randomText;
+
+        });
+
+        document.querySelector(".quote-div3").addEventListener("click", (e) => {
+            e.preventDefault();
+            const randomText = flirtyTexts3[Math.floor(Math.random() * flirtyTexts3.length)];
+            textElement3.textContent = randomText;
+        });
+
+        document.querySelector(".quote-div4").addEventListener("click", (e) => {
+            e.preventDefault();
+            const randomText = flirtyTexts4[Math.floor(Math.random() * flirtyTexts4.length)];
+            textElement4.textContent = randomText;
+        });
+
+
+
+        // const submitBtn = document.querySelector('#submitBtn').addEventListener('click', () => {
+        //     const query = document.getElementById("queryInput").value;
+        //     if (query.trim() === "") {
+        //         console.log(" Empty query ...");
+        //         alert("Can't send empty queries !");
+        //     } else {
+        //         const formData = {
+        //             "Query": query
+        //         };
+
+        //         fetch("https://formspree.io/f/mdkolzdv", {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //             },
+        //             body: JSON.stringify(formData)
+        //         })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 console.log("Success:", data);
+        //                 alert("Query sent successfully !")
+        //             })
+        //             .catch((error) => {
+        //                 console.error("Error:", error);
+        //                 alert("Unable to send, try again later !")
+
+        //             });
+        //     }
+        // });
+
+
+
+
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent the form's default submission behavior
+
+            const form = e.target; // Get the form element
+
+            try {
+                // Send the form data to Formspree
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { Accept: "application/json" },
+                });
+
+                if (response.ok) {
+                    alert("Your message was sent successfully!"); // Show success alert
+                    form.reset(); // Reset the form fields
+                } else {
+                    alert("Oops! There was a problem sending your message."); // Show error alert
+                }
+            } catch (error) {
+                alert("Failed to send the message. Please try again later."); // Show network error alert
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .qr-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .qr-section img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qr-section p {
+            font-size: 1.2em;
+            color: #ffe8ff;
+            margin-bottom: 20px;
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-section label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .input-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff73ff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .submit-button:hover {
+            background-color: #d161d1;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Payment Transaction</h1>
+
+        <div class="qr-section">
+            <img src="./QrCode.jpg" alt="QR Code">
+            <p>Scan the QR code and pay <span class="amt">49</span></p>
+        </div>
+
+        <div class="input-section">
+            <label for="txnID">Enter Transaction ID</label>
+            <input type="text" id="txnID" name="txnID" placeholder="Enter your Transaction ID" required>
+            <button class="submit-button">Submit</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+        const selectedPlan = localStorage.getItem('plan');
+
+        console.log(selectedPlan);
+        console.log(typeof (selectedPlan));
+
+        if (selectedPlan) {
+            if (selectedPlan === '1') {
+                document.querySelector('.amt').innerText = '29';
+            } else if (selectedPlan === '2') {
+                document.querySelector('.amt').innerText = '49';
+            } else if (selectedPlan === '3') {
+                document.querySelector('.amt').innerText = '69';
+            } else {
+                document.querySelector('.amt').innerText = '99';
+
+            }
+        }
+
+
+
+
+
+
+        const plan = localStorage.getItem('plan');
+
+        const submitBtn = document.querySelector('.submit-button');
+
+        let TXNID;
+
+
+        submitBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            TXNID = document.getElementById('txnID').value;
+
+            verifyTxnId(TXNID.toString().trim());
+        });
+
+
+
+
+
+
+        function isValidTxnId(txnId) {
+            //write algo to verify the txn id
+
+            return txnId.length === 12;
+        }
+
+
+
+        async function verifyTxnId(txnId) {
+            if (txnId.length <= 5) {
+                console.log("Invalid txnId retry ...");
+                alert("Invalid txnId ...");
+
+                return;
+            }
+
+
+            if (isValidTxnId(txnId)) {
+
+                // Assuming you have JWT in the localStorage or somewhere secure
+                const token = localStorage.getItem("token");
+                const url = 'https://blitzprombackenddeploytry2.onrender.com/txn'
+
+                if (!token) {
+                    console.log("User not authenticated, login first ...");
+                    window.location.replace('./index.html');
+                    return;
+                }
+
+                const requestBody = {
+                    plan: plan,
+                    txnId: TXNID
+                };
+
+                try {
+                    console.log("fetchingg ....");
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(requestBody)
+                    });
+
+                    console.log(response);
+
+                    const data = await response.json();
+                    console.log(data);
+                    if (response.ok) {
+                        console.log(`Plan updated successfully:`, data);
+                        alert('Txn successful, relogin to benefit the premium features ...');
+                    } else {
+
+                        console.log(`Failed to update plan:`, data);
+                        alert('Failed to update plan:...');
+
+                    }
+                } catch (error) {
+
+                    console.error("Error in sending POST request for txn ", error);
+                    alert('Error in sending POST request for txn ');
+
+                }
+
+
+                console.log("txn successful ...");
+                window.location.href = './index.html';
+            } else {
+
+                console.log("Invalid txnId retry ...");
+                alert("Invalid txnId ...");
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

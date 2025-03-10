@@ -1,0 +1,2751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blitzProm</title>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+
+            background-image: url('./background-pic.png');
+            background-size: center;
+            background-position: cover;
+            background-repeat: no-repeat;
+            /* overflow: hidden; */
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        body {
+            background-color: aqua;
+            width: 100vw;
+            /* height: 100%; This isn't used because due to curve in lower part of th emobile display remains uncovered by the image.  */
+            height: 1000px;
+
+            /* background-image: url('./background-pic.png');
+        background-size: center;
+        background-position: cover;
+        background-repeat: no-repeat;
+        overflow: hidden; */
+
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+        }
+
+        nav {
+            width: auto;
+            height: 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: white;
+
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        nav h1 {
+            font-size: 2.25rem;
+            font-family: Rouge Script;
+
+            width: 40vw;
+            font-weight: 200;
+
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            list-style-type: none;
+            gap: 8px;
+
+            width: 40vw;
+
+
+        }
+
+        nav li {
+            height: auto;
+            width: auto;
+
+        }
+
+        nav li button {
+            all: unset;
+            width: 25px;
+            height: 25px;
+            font-size: 0.9rem;
+            color: rgb(255, 255, 255);
+        }
+
+        nav img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: contain;
+        }
+
+
+        nav .leaderboard-button {
+            background-image: url('./leaderboard-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 20px;
+            height: 20px;
+
+
+        }
+
+        nav .likes-button {
+            border: none;
+            background-image: url('./likes-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 3px;
+            padding-top: 2px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 600;
+
+
+        }
+
+        nav .polls-button {
+            background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 5px;
+            padding-top: 3px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 600;
+
+
+        }
+
+        nav .profile-button {
+            /* background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; */
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            /* padding-right: 5px;
+            padding-top: 3px; */
+
+            color: rgb(0, 0, 0);
+
+            font-size: 1.4rem;
+            font-weight: 100;
+
+        }
+
+        .navbar2 {
+            width: auto;
+            height: 40px;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+
+        }
+
+        .navbar2 button {
+            all: unset;
+            width: 25%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 0.7rem;
+            color: white;
+
+            /* border: 2px solid rgb(255, 255, 255); */
+            border-radius: 25px;
+
+            font-weight: 600;
+
+            background: rgb(0, 0, 0);
+        }
+
+        .main-div {
+            width: 100%;
+            height: auto;
+
+            padding-bottom: 50px;
+
+        }
+
+        .main-div .h2 {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 2.25rem;
+
+        }
+
+
+        /* for likes you got  */
+        .main-div .likes-you-got .profile-div {
+            width: 80%;
+            height: auto;
+
+            margin-left: 10%;
+            margin-bottom: 5vh;
+            border: 1px solid black;
+            border-radius: 30px;
+
+            background-color: rgb(162, 241, 255);
+
+            padding-bottom: 15px;
+
+
+        }
+
+        .main-div .likes-you-got .profile-div>div {
+            width: 100%;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            margin-top: 10px;
+        }
+
+        .main-div .likes-you-got .profile-div .make-match-btn {
+            all: unset;
+
+            width: 50%;
+            height: 50%;
+
+            background-color: pink;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-div .likes-you-got .profile-div .avatar-div {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+
+            border: 1px solid black;
+            border-radius: 50%;
+
+            background-color: rgb(0, 0, 0);
+
+            background-image: url('male-avatar1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+        }
+
+        .main-div .likes-you-got .profile-div p {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-div .likes-you-got .profile-div .name {
+            width: 100%;
+            text-align: center;
+            font-size: 1.25rem;
+            color: black;
+
+            margin-top: 15px;
+
+            padding-left: 10%;
+
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            font-weight: 600;
+        }
+
+        .main-div .likes-you-got .profile-div .branch {
+            width: 100%;
+            font-size: 0.9rem;
+            color: black;
+            margin-top: 5px;
+            font-weight: 400;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 10%;
+
+        }
+
+        .main-div .likes-you-got .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 0.9rem;
+            color: black;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 10%;
+
+        }
+
+        .main-div .likes-you-got .profile-div .instaId {
+            width: 100%;
+            text-align: center;
+            font-size: 1.25rem;
+            color: rgb(213, 62, 255);
+            margin-top: 5px;
+
+            font-weight: 600;
+        }
+
+
+
+        /* for matched */
+        .main-div .matched {
+            width: 100%;
+            height: auto;
+
+            padding-bottom: 50px;
+
+        }
+
+        .main-div .matched .profile-div {
+            width: 80%;
+            margin-left: 10%;
+            margin-bottom: 5vh;
+
+            background-color: rgb(238, 238, 238);
+            border-radius: 20px;
+
+            padding-top: 5px;
+
+        }
+
+        .main-div .matched .profile-div .name {
+            width: 100%;
+
+            font-size: 1.25rem;
+            margin-left: 10px;
+
+            margin-top: 5px;
+
+        }
+
+        .main-div .matched .profile-div>p:last-of-type {
+            margin-top: 5px;
+        }
+
+        .main-div .matched .profile-div .branch {
+            width: 100%;
+
+            font-size: 0.9rem;
+            margin-left: 12px;
+
+
+        }
+
+        .main-div .matched .profile-div>div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        .main-div .matched .profile-div div .details {
+            width: 80%;
+
+
+        }
+
+        .main-div .matched .profile-div button {
+            all: unset;
+            width: 20%;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        .main-div .matched .profile-div i {
+            font-size: 1.5rem;
+
+            color: rgb(217, 27, 255);
+        }
+
+        .main-div .matched .profile-div .details .year {
+            width: 100%;
+            margin-left: 12px;
+        }
+
+        .main-div .matched .profile-div .details .instaId {
+            width: 100%;
+            margin-left: 12px;
+
+            font-size: 1.3rem;
+            color: #1e63d4;
+        }
+
+
+
+        /* for likes you sent  */
+        .main-div .likes-you-sent {
+            width: 100%;
+            height: auto;
+
+            padding-bottom: 50px;
+
+        }
+
+        .main-div .likes-you-sent .profile-div {
+            width: 80%;
+            height: 60px;
+            margin-left: 10%;
+            margin-bottom: 25px;
+
+            background-color: rgb(238, 238, 238);
+            border-radius: 10px;
+
+            padding-top: 5px;
+
+        }
+
+        .main-div .likes-you-sent .profile-div .name {
+            width: 100%;
+
+            font-size: 1.25rem;
+            margin-left: 10px;
+
+            margin-top: 5px;
+
+        }
+
+        .main-div .likes-you-sent .profile-div>p:last-of-type {
+            margin-top: 2px;
+            margin-bottom: 20px;
+        }
+
+        .main-div .likes-you-sent .profile-div .branch {
+            width: 100%;
+
+            font-size: 0.9rem;
+            margin-left: 12px;
+
+
+        }
+
+        .main-div .likes-you-sent .profile-div .year {
+            width: 100%;
+
+            font-size: 0.9rem;
+            margin-left: 12px;
+
+
+        }
+
+
+
+        /* Open pool */
+
+        .main-div .open-pool {
+            width: 100%;
+            height: auto;
+
+            padding-bottom: 50px;
+        }
+
+        .main-div .open-pool .profile-div {
+            width: 80%;
+            height: auto;
+
+            margin-left: 10%;
+            border: 1px solid black;
+            border-radius: 30px;
+            margin-bottom: 5vh;
+
+            padding-bottom: 15px;
+
+            background-color: rgb(162, 241, 255);
+        }
+
+        .main-div .open-pool .profile-div>div {
+            width: 100%;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            margin-top: 10px;
+        }
+
+        .main-div .open-pool .profile-div .make-match-btn {
+            all: unset;
+
+            width: 50%;
+            height: 50%;
+
+            background-color: pink;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-div .open-pool .profile-div .avatar-div {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+
+            border: 1px solid black;
+            border-radius: 50%;
+
+            background-color: rgb(0, 0, 0);
+
+            background-image: url('male-avatar1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+        }
+
+        .main-div .open-pool .profile-div p {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-div .open-pool .profile-div .name {
+            width: 100%;
+            text-align: center;
+            font-size: 1.25rem;
+            color: black;
+
+            margin-top: 15px;
+
+            padding-left: 10%;
+
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            font-weight: 600;
+        }
+
+        .main-div .open-pool .profile-div .branch {
+            width: 100%;
+            font-size: 0.9rem;
+            color: black;
+            margin-top: 5px;
+            font-weight: 400;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 10%;
+
+        }
+
+        .main-div .open-pool .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 0.9rem;
+            color: black;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 10%;
+
+        }
+
+        .main-div .open-pool .profile-div .instaId {
+            width: 100%;
+            text-align: center;
+            font-size: 1.25rem;
+            color: rgb(213, 62, 255);
+
+            font-weight: 600;
+        }
+
+        .main-div .open-pool .profile-div>div:not(.avatar-outer-div) {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            margin-top: -3.5%;
+
+        }
+
+        .main-div .open-pool .profile-div div .details {
+            width: 80%;
+
+
+        }
+
+        .main-div .open-pool .profile-div button {
+            all: unset;
+            width: 10%;
+            margin-right: 10%;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        .main-div .open-pool .profile-div i {
+            font-size: 1.5rem;
+
+            color: rgb(217, 27, 255);
+        }
+
+
+        @keyframes instaGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .main-div .likes-you-got .profile-div .redirect-icon {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+            background-size: 300% 300%;
+
+            /* Standard and WebKit background clip for text */
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            /* Standard and WebKit text fill */
+            -webkit-text-fill-color: transparent;
+            /* text-fill-color: transparent; */
+
+            /* Smooth animation */
+            animation: instaGradient 3s infinite linear;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">
+            <h1>Blitz Prom</h1>
+        </a>
+
+        <ul>
+            <li><button class="leaderboard-button"></button></li>
+            <li><button class="likes-button">2</button></li>
+            <li><button class="polls-button"></button></li>
+            <li><button type="button" class="profile-button"><i class="fa-solid fa-user"></i></button></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="navbar2">
+        <button class="nav2-matched-btn">Matched</button>
+        <button class="nav2-likes-you-got-btn">Like Received</button>
+        <button class="nav2-likes-you-sent-btn">Likes Sent</button>
+        <button class="nav2-open-pool-btn">Open pool</button>
+
+    </div>
+
+    <div class="main-div">
+
+
+        <!-- <h2 class="likes-h2 h2"><span class="heading">Likes you got</span> <span class="likeCount">10</span></h2> -->
+
+
+        <div class="likes-you-got">
+
+            <h2 class="h2"><span class="heading">Likes you got</span></h2>
+
+            <div>
+                <!-- <div class="profile-div">
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button onclick="makeItAMatch()" class="make-match-btn" disabled>Make it a Match</button>
+                    </div>
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <p class="instaId"><a href="">@_._vikas.07</a></p>
+
+                </div> -->
+
+                <!-- <div class="profile-div">
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Make it a Match</button>
+                    </div>
+    
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <p class="instaId"><a href="">@thatrelatable_kunal_blitzhhhh</a></p>
+    
+                </div>
+    
+                <div class="profile-div">
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Make it a Match</button>
+                    </div>
+    
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <p class="instaId"><a href="">@_._vikas.07</a></p>
+    
+                </div>
+    
+                <div class="profile-div">
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Make it a Match</button>
+                    </div>
+    
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <p class="instaId"><a href="">@_._vikas.07</a></p>
+    
+                </div> -->
+            </div>
+
+
+
+        </div>
+
+        <div class="matched">
+            <h2 class="h2"><span class="heading">Matches</span></h2>
+
+
+            <div>
+                <!-- <div class="profile-div">
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+
+                </div> -->
+
+                <!-- <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId"><a>@_._vikas.07</a></p>
+                        </div>
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <!-- <div class="profile-div">
+
+                <p class="name">Vikas Chandwara</p>
+                <p class="branch">Electrical Engineering</p>
+
+                <div>
+                    <div class="details">
+                        <p class="year">2023-27'</p>
+                        <p class="instaId">@_._vikas.07</p>
+                    </div>
+
+                    <button>
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </button>
+                </div>
+
+            </div> -->
+
+
+
+
+        </div>
+
+
+
+        <!-- <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div> -->
+        <div class="likes-you-sent">
+            <h2 class="h2"><span class="heading">Likes you sent</span></h2>
+
+            <div>
+                <!-- <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                    
+                </div> -->
+
+                <!-- <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                </div>
+
+                <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                </div>
+
+                <div class="profile-div">
+                    <p class="name">Vikas Chandwara</p>
+                    <p><span class="branch">Electrical Engineering</span> - <span class="year">27'</span></p>
+                </div> -->
+            </div>
+
+        </div>
+
+
+
+        <div class="open-pool">
+            <h2 class="h2"><span class="heading">Open pool</span></h2>
+
+            <div>
+                <!-- <div class="profile-div">
+                    <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Send a Like</button>
+                    </div>
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div> -->
+
+                <!-- <div class="profile-div">
+                    <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Send a Like</button>
+                    </div>
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="profile-div">
+                    <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Send a Like</button>
+                    </div>
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="profile-div">
+                    <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn" disabled>Send a Like</button>
+                    </div>
+
+                    <p class="name">Vikas Chandwara</p>
+                    <p class="branch">Electrical Engineering</p>
+                    <p class="year">2023-27</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@_._vikas.07</p>
+                        </div>
+
+                        <button>
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <script>
+
+            function redirectIfNotMobile() {
+                console.log("Inside device detect func ....");
+
+                // Get the user agent string and platform
+                const userAgent = navigator.userAgent.toLowerCase();
+                const platform = navigator.platform.toLowerCase();
+                console.log("User Agent: ", userAgent); // Log the user  agent
+                console.log("Platform: ", platform); // Log the platform
+
+                // Screen size: mobile devices typically have a width less than 1024px
+                const screenWidth = window.innerWidth;
+                console.log("Screen Width: ", screenWidth); // Log the screen width
+
+                // Touch event detection (mobile devices support touch events)
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+                // Regular expression for mobile devices based on user-agent
+                const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+                const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+                // Combine checks to ensure the user is on a mobile or tablet device
+                const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+                // Log the final result of the check
+                console.log("Is Mobile (Final Check): ", isMobile);
+
+                // If not mobile or if user is on a PC, redirect them
+                if (!isMobile) {
+                    console.log("Redirecting to non-mobile page...");
+                    window.location.href = "./hello.html"; // Modify URL as needed
+                }
+            }
+
+            // Call the function after the page loads
+            window.onload = redirectIfNotMobile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Fetch the likes info only for the like you got
+            document.addEventListener('DOMContentLoaded', async () => {
+                console.log("Removing the main div data ...");
+
+                document.querySelector('.likes-you-got>div:first-of-type').innerHTML = '';
+                document.querySelector('.matched>div:first-of-type').innerHTML = '';
+                document.querySelector('.likes-you-sent>div:first-of-type').innerHTML = '';
+                document.querySelector('.open-pool>div:first-of-type').innerHTML = '';
+            });
+
+
+
+
+
+            const likesSentDiv = document.querySelector('.likes-you-sent');
+            const matchedDiv = document.querySelector('.matched');
+            const likesGotDiv = document.querySelector('.likes-you-got');
+            const openPool = document.querySelector('.open-pool');
+
+            const navbar2MatchedBtn = document.querySelector('.nav2-matched-btn');
+            const navbar2LikesYouGotBtn = document.querySelector('.nav2-likes-you-got-btn');
+            const navbar2LikesYouSentBtn = document.querySelector('.nav2-likes-you-sent-btn');
+            const navbar2OpenPoolBtn = document.querySelector('.nav2-open-pool-btn');
+
+
+            matchedDiv.style.display = 'none';
+            likesGotDiv.style.display = 'block';
+            likesSentDiv.style.display = 'none';
+            openPool.style.display = 'none';
+
+            navbar2MatchedBtn.style.backgroundColor = 'transparent';
+            navbar2LikesYouGotBtn.style.backgroundColor = 'black';
+            navbar2LikesYouSentBtn.style.backgroundColor = 'transparent';
+            navbar2OpenPoolBtn.style.backgroundColor = 'transparent';
+
+
+            navbar2MatchedBtn.style.fontSize = '0.7rem';
+            navbar2LikesYouGotBtn.style.fontSize = '0.8rem';
+            navbar2LikesYouSentBtn.style.fontSize = '0.7rem';
+            navbar2OpenPoolBtn.style.fontSize = '0.7rem';
+
+
+            // likesGotDiv.style.display = 'block';
+            // likesSentDiv.style.display = 'none';
+            // matchedDiv.style.display = 'none';
+
+            //Fetch the likes info only for the like you got
+            document.addEventListener('DOMContentLoaded', async () => {
+                // console.log("Fetching likes data 3...");
+                // fetchLikesData3();
+
+                // console.log("Fetching likes data 2...");
+                // fetchLikesData2();
+
+                // console.log("Fetching likes data 1...");
+                // fetchLikesData1();
+
+                // reassignTheData();
+
+                console.log("Fetching likes data...");
+
+                try {
+                    // Run all fetch operations in parallel
+                    await Promise.all([
+                        fetchLikesData3(),
+                        fetchLikesData2(),
+                        fetchLikesData1()
+                    ]);
+
+                    console.log("All fetch operations completed. Now reassigning data...");
+                    reassignTheData();
+                } catch (error) {
+                    console.error("Error fetching likes data:", error);
+                }
+
+            });
+
+            // //Fetch the likes info only for the like you sent and matched
+            // document.addEventListener('DOMContentLoaded', async () => {
+            //     console.log("Fetching likes data 2...");
+
+            //     fetchLikesData2();
+
+            // });
+
+            // //Fetch the likes info only for the like you sent and matched
+            // document.addEventListener('DOMContentLoaded', async () => {
+            //     console.log("Fetching likes data 3...");
+
+            //     fetchLikesData3();
+
+            // });
+
+            // // Clear the previous content
+            // document.querySelector('.likes-div').innerHTML = '';
+            const heading = document.querySelector('.main-div .heading');
+
+
+            let startX, startY, endX, endY;
+            let currentPage = 2;//Middle page which is likes you got ... The left (1) will be matched .... The right (3) will be likes you sent ...
+            let matched;
+            let likesYouSent;
+            let likesYouGot;
+            let likesYouGotCount;
+            let likesYouSentCount;
+            let matchedCount;
+            let email;
+            let openPoolData;
+            let openPoolDataCount;
+            let isTheUserPremium;
+
+
+
+
+            navbar2MatchedBtn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                currentPage = 1;
+                updateDisplayVisibilityOfSectionDivs();
+            });
+            navbar2LikesYouGotBtn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                currentPage = 2;
+                updateDisplayVisibilityOfSectionDivs();
+            });
+            navbar2LikesYouSentBtn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                currentPage = 3;
+                updateDisplayVisibilityOfSectionDivs();
+            });
+            navbar2OpenPoolBtn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                currentPage = 4;
+                updateDisplayVisibilityOfSectionDivs();
+            });
+
+
+
+
+            document.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            });
+
+            document.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                endY = e.changedTouches[0].clientY;
+
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const diffX = endX - startX;
+                const diffY = endY - startY;
+
+                // Horizontal swipe
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (diffX > 50) {
+                        console.log('Swiped right');
+                        // Add your dynamic change logic here
+                        // if (currentLocation === 'Female') {
+                        //     currentLocation = 'Male';
+                        //     avatar.style.backgroundImage = "url('./male-avatar1.svg')";
+                        //     if (maleData) {
+                        //         updateLocationToMale(maleData);
+                        //     }
+                        // }
+                        if (currentPage > 1) {
+                            currentPage--;
+
+                            // updatingDomForSwipes();
+                        }
+
+                        // updateDisplayVisibilityOfSectionDivs();
+                    }
+                    if (diffX < -50) {
+                        console.log('Swiped left');
+                        // Add your dynamic change logic here
+                        // if (currentLocation === 'Male') {
+                        //     currentLocation = 'Female';
+                        //     avatar.style.backgroundImage = "url('./female-avatar1.svg')";
+                        //     if (femaleData) {
+                        //         updateLocationToFemale(femaleData);
+                        //     }
+                        // }
+
+                        if (currentPage < 4) {
+                            currentPage++;
+
+                            // updatingDomForSwipes();
+                        }
+
+                        // updateDisplayVisibilityOfSectionDivs();
+
+                    }
+                }
+                // Vertical swipe
+                else {
+                    if (diffY > 50) {
+                        console.log('Swiped down');
+                        // Add your dynamic change logic here
+
+                    } else if (diffY < -50) {
+                        console.log('Swiped up');
+                        // Add your dynamic change logic here
+                    }
+                }
+
+                updateDisplayVisibilityOfSectionDivs();
+
+            }
+
+
+
+            const name = document.querySelectorAll('.main-div .name');
+            const branch = document.querySelectorAll('.main-div .branch');
+            const year = document.querySelectorAll('.main-div .year');
+            const insta = document.querySelectorAll('.main-div .insta a');
+
+
+
+
+
+
+
+            document.querySelector('.navbar .leaderboard-button').addEventListener("click", (evt) => {
+                evt.preventDefault();
+                console.log("leaderboard button clicked ...");
+                window.location.href = './leaderboard.html';
+            });
+            document.querySelector('.navbar .likes-button').addEventListener("click", (evt) => {
+                evt.preventDefault();
+                console.log("likes button clicked ...");
+                location.reload();
+            });
+
+            document.querySelector('.navbar .polls-button').addEventListener("click", (evt) => {
+                evt.preventDefault();
+
+                console.log("polls button clicked ...");
+                window.location.href = './pollPage.html';
+            });
+            document.querySelector('.navbar .profile-button').addEventListener("click", (evt) => {
+                evt.preventDefault();
+
+                console.log("Profile button clicked ...");
+                window.location.href = './profilePage.html';
+            });
+
+
+
+
+
+            function updateDisplayVisibilityOfSectionDivs() {
+                if (currentPage === 1) {
+                    console.log("Hello from page 1 ...");
+                    matchedDiv.style.display = 'block';
+                    likesGotDiv.style.display = 'none';
+                    likesSentDiv.style.display = 'none';
+                    openPool.style.display = 'none';
+
+                    navbar2MatchedBtn.style.backgroundColor = 'black';
+                    navbar2LikesYouGotBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouSentBtn.style.backgroundColor = 'transparent';
+                    navbar2OpenPoolBtn.style.backgroundColor = 'transparent';
+
+
+                    navbar2MatchedBtn.style.fontSize = '0.8rem';
+                    navbar2LikesYouGotBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouSentBtn.style.fontSize = '0.7rem';
+                    navbar2OpenPoolBtn.style.fontSize = '0.7rem';
+                } else if (currentPage === 2) {
+                    console.log("Hello from page 2 ...");
+                    matchedDiv.style.display = 'none';
+                    likesGotDiv.style.display = 'block';
+                    likesSentDiv.style.display = 'none';
+                    openPool.style.display = 'none';
+
+                    navbar2MatchedBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouGotBtn.style.backgroundColor = 'black';
+                    navbar2LikesYouSentBtn.style.backgroundColor = 'transparent';
+                    navbar2OpenPoolBtn.style.backgroundColor = 'transparent';
+
+
+                    navbar2MatchedBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouGotBtn.style.fontSize = '0.8rem';
+                    navbar2LikesYouSentBtn.style.fontSize = '0.7rem';
+                    navbar2OpenPoolBtn.style.fontSize = '0.7rem';
+                } else if (currentPage === 3) {
+                    console.log("Hello from page 3 ...");
+                    matchedDiv.style.display = 'none';
+                    likesGotDiv.style.display = 'none';
+                    likesSentDiv.style.display = 'block';
+                    openPool.style.display = 'none';
+
+                    navbar2MatchedBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouGotBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouSentBtn.style.backgroundColor = 'black';
+                    navbar2OpenPoolBtn.style.backgroundColor = 'transparent';
+
+
+                    navbar2MatchedBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouGotBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouSentBtn.style.fontSize = '0.8rem';
+                    navbar2OpenPoolBtn.style.fontSize = '0.7rem';
+                } else {
+                    console.log("Hello from page 4 ...");
+                    matchedDiv.style.display = 'none';
+                    likesGotDiv.style.display = 'none';
+                    likesSentDiv.style.display = 'none';
+                    openPool.style.display = 'block';
+
+                    navbar2MatchedBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouGotBtn.style.backgroundColor = 'transparent';
+                    navbar2LikesYouSentBtn.style.backgroundColor = 'transparent';
+                    navbar2OpenPoolBtn.style.backgroundColor = 'black';
+
+
+                    navbar2MatchedBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouGotBtn.style.fontSize = '0.7rem';
+                    navbar2LikesYouSentBtn.style.fontSize = '0.7rem';
+                    navbar2OpenPoolBtn.style.fontSize = '0.8rem';
+                }
+            }
+
+
+            //updateingDomForSwipes
+            // function updatingDomForSwipes() {
+
+            // }
+            // function updatingDomForSwipes() {
+            //     const mainDiv = document.querySelector('.likes-div'); // Select the main div
+
+            //     let data;
+            //     let dataCount;
+
+            //     if (currentPage === 1) {
+            //         data = matched;
+            //         dataCount = matchedCount;
+            //         heading.innerText = "You matched with !";
+
+            //     } else if (currentPage === 2) {
+            //         data = likesYouGot;
+            //         dataCount = likesYouGotCount;
+            //         heading.innerText = "Likes you got !";
+
+            //     } else if (currentPage === 3) {
+            //         data = likesYouSent;
+            //         dataCount = likesYouSentCount;
+            //         heading.innerText = "Likes you sent !";
+
+            //     }
+
+
+            //     // data = [
+            //     //     '2023UEE1@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE4211@mnit.ac.in',
+            //     //     '2023UEE1711@mnit.ac.in',
+            //     //     '2023UEE1111@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+            //     //     '2023UEE1211@mnit.ac.in',
+
+            //     // ];
+
+
+
+
+            //     if (dataCount > 0) {
+            //         // Loop through the likesYouGot array and create a div for each email
+            //         data.forEach(email => {
+            //             const userDiv = document.createElement('div'); // Create a div for each user
+            //             userDiv.textContent = email; // Set the email as the text content
+            //             userDiv.style.cursor = 'pointer'; // Make it look clickable
+            //             userDiv.style.padding = '10px';
+            //             userDiv.style.margin = '5px';
+            //             userDiv.style.border = '1px solid #ccc';
+            //             userDiv.style.borderRadius = '5px';
+            //             userDiv.style.backgroundColor = '#f9f9f9';
+            //             userDiv.style.width = '60%';
+            //             userDiv.style.height = '30px';
+            //             userDiv.style.marginLeft = '18%';
+            //             userDiv.style.display = 'flex';
+            //             userDiv.style.alignItems = 'center';
+            //             userDiv.style.justifyContent = 'center';
+            //             userDiv.style.borderRadius = '15px';
+            //             userDiv.style.marginBottom = '20px';
+
+
+            //             // Add a click event to redirect the user
+            //             userDiv.addEventListener('click', () => {
+
+            //                 redirectToOtherUserProfile(email);
+            //             });
+
+            //             // Append the div to the main-div
+            //             mainDiv.appendChild(userDiv);
+            //         });
+            //     } else {
+            //         //Do something to show that there is no data for this field as of now
+            //     }
+
+
+
+
+            //     console.log(currentPage);
+            //     console.log(matched);
+            //     console.log(likesYouSentCount);
+            //     console.log(likesYouSent);
+            //     console.log(likesYouGotCount);
+            //     console.log(likesYouGot);
+
+            // }
+
+
+
+
+            async function makeItAMatch(theOtherUserEmail) {
+                console.log("The user:", email, "made a match with", theOtherUserEmail);
+
+                try {
+                    const response = await fetch("https://blitzprombackenddeploytry2.onrender.com/makeItAMatch", {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userEmail: email,
+                            otherUserEmail: theOtherUserEmail
+                        })
+                    });
+
+                    const result = await response.json();
+                    console.log("Match response:", result);
+
+                    if (response.ok) {
+                        alert("Match successfully made!");
+                    } else {
+                        alert("Error making match: " + result.message);
+                    }
+                } catch (error) {
+                    console.error("Error making a match:", error);
+                }
+            }
+
+
+            async function sendALike(theOtherUserEmail) {
+                console.log("The user:", email, "liked", theOtherUserEmail, "from open pool");
+
+                try {
+                    const response = await fetch("https://blitzprombackenddeploytry2.onrender.com/sendALike", {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userEmail: email,
+                            otherUserEmail: theOtherUserEmail
+                        })
+                    });
+
+                    const result = await response.json();
+                    console.log("Like response:", result);
+
+                    if (response.ok) {
+                        alert("Like successfully sent!");
+                    } else {
+                        alert("Error sending like: " + result.message);
+                    }
+                } catch (error) {
+                    console.error("Error sending like:", error);
+                }
+            }
+
+
+
+
+            function updateDomForOpenPoolData() {
+
+                const mainDiv = document.querySelector('.open-pool>div:first-of-type'); // Select the main div
+
+                mainDiv.innerHTML = '';
+
+                console.log("In update DOM FUNC for open pool ....");
+
+                // document.querySelector('.likeCount').innerText = likesYouGotCount;
+
+                // likesYouGot = [
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE4211@mnit.ac.in',
+                //     '2023UEE1711@mnit.ac.in',
+                //     '2023UEE1111@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+
+                // ];
+
+                console.log(isTheUserPremium);
+
+                if (isTheUserPremium) {
+                    //If the user is premium
+                    console.log("Inside the premium section if ....");
+                    console.log(openPoolData);
+                    console.log(openPoolDataCount);
+                    console.log(openPoolData.length);
+                    if (openPoolDataCount > 0) {
+                        console.log("hi from update DOM for open pool data is ...", openPoolData);
+                        // Loop through the likesYouGot array and create a div for each email
+                        openPoolData.forEach(user => {
+                            const userDiv = document.createElement('div'); // Create a div for each user
+                            userDiv.classList.add('profile-div');
+                            userDiv.innerHTML = `
+        <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="send-like-btn make-match-btn" >Send a Like</button>
+                    </div>
+
+                    <p class="name">${user.name}</p>
+                    <p class="branch">${getBranch(user.email)}</p>
+                    <p class="year">${getYear(user.email)}</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@${user.instaId}</p>
+                        </div>
+
+                        <button class="redirect-btn">
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+        `;
+                            // userDiv.textContent = email; // Set the email as the text content
+                            // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                            // userDiv.style.padding = '10px';
+                            // userDiv.style.margin = '5px';
+                            // userDiv.style.border = '1px solid #ccc';
+                            // userDiv.style.borderRadius = '5px';
+                            // userDiv.style.backgroundColor = '#f9f9f9';
+                            // userDiv.style.width = '60%';
+                            // userDiv.style.height = '30px';
+                            // userDiv.style.marginLeft = '18%';
+                            // userDiv.style.display = 'flex';
+                            // userDiv.style.alignItems = 'center';
+                            // userDiv.style.justifyContent = 'center';
+                            // userDiv.style.borderRadius = '15px';
+                            // userDiv.style.marginBottom = '20px';
+
+
+                            //update the avatar by adding the female avatar clas in th eavatar div by checking the gender
+
+                            // // Add a click event to redirect the user
+                            // userDiv.addEventListener('click', () => {
+                            //     redirectToOtherUserProfile(email);
+                            // });
+
+                            if (user.gender === "female") {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                            } else {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./male-avatar1.jpg")';
+
+                            }
+
+                            // Find the button inside the userDiv
+                            const instaBtn = userDiv.querySelector(".redirect-btn");
+
+                            // Attach event listener with respective user's email
+                            instaBtn.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+                                console.log("redirect btn clicked ....");
+                                redirectToInsta(userDiv.querySelector('.instaId'));
+                            });
+
+
+                            // Find the button inside the userDiv
+                            const sendLikeBtn = userDiv.querySelector(".send-like-btn");
+
+                            // Attach event listener with respective user's email
+                            sendLikeBtn.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+
+                                sendALike(user.email);
+                            });
+
+                            // Append the div to the main container
+                            mainDiv.appendChild(userDiv);
+                        });
+
+                    } else {
+                        //Do somethin which show the user that this field is empty as your past activity till now 
+                        const userP = document.createElement('p');
+
+                        const quoteP = document.createElement('p');
+
+                        // Styling for user message (Open Pool empty)
+                        userP.innerText = "Looks like the Open Pool is empty for now. Be the first to make an appearance and let potential matches find you!";
+                        userP.style.width = "80%";
+                        userP.style.textAlign = "center";
+                        userP.style.margin = "5vh auto 0 auto"; // Centering with margin
+                        userP.style.fontSize = "1.3rem";
+                        userP.style.fontWeight = "500";
+                        userP.style.color = "black"; // Subtle dark gray
+                        userP.style.lineHeight = "1.5";
+
+                        // Styling for quote message (Premium visibility info)
+                        quoteP.innerText = '"Premium users can choose to be visible in the Open Pool by toggling the visibility switch in their profile settings. Enable it to let potential matches discover you effortlessly!"';
+                        quoteP.style.width = "80%";
+                        quoteP.style.textAlign = "center";
+                        quoteP.style.margin = "5vh auto 0 auto"; // Centering with margin
+                        quoteP.style.fontSize = "1.4rem";
+                        quoteP.style.color = "black"; // Slightly lighter gray
+                        quoteP.style.fontStyle = "italic";
+                        quoteP.style.lineHeight = "1.5";
+                        quoteP.style.borderLeft = "4px solid white"; // Subtle left highlight
+                        quoteP.style.paddingLeft = "15px"; // Space from border
+
+
+
+                        mainDiv.appendChild(userP);
+                        mainDiv.appendChild(quoteP);
+
+
+                    }
+                } else {
+                    //If the user is no premium
+                    if (openPoolDataCount > 0) {
+                        // Loop through the likesYouGot array and create a div for each email
+                        openPoolData.forEach(user => {
+                            const userDiv = document.createElement('div'); // Create a div for each user
+                            userDiv.classList.add('profile-div');
+                            userDiv.innerHTML = `
+        <div class="avatar-outer-div">
+                        <div class="avatar-div">
+                        </div>
+                        <button class="send-like-btn make-match-btn" >Send a Like</button>
+                    </div>
+
+                    <p class="name">${user.name}</p>
+                    <p class="branch">${getBranch(user.email)}</p>
+                    <p class="year">${getYear(user.email)}</p>
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@${user.instaId}</p>
+                        </div>
+
+                        <button class="redirect-btn">
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+        `;
+                            // userDiv.textContent = email; // Set the email as the text content
+                            // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                            // userDiv.style.padding = '10px';
+                            // userDiv.style.margin = '5px';
+                            // userDiv.style.border = '1px solid #ccc';
+                            // userDiv.style.borderRadius = '5px';
+                            // userDiv.style.backgroundColor = '#f9f9f9';
+                            // userDiv.style.width = '60%';
+                            // userDiv.style.height = '30px';
+                            // userDiv.style.marginLeft = '18%';
+                            // userDiv.style.display = 'flex';
+                            // userDiv.style.alignItems = 'center';
+                            // userDiv.style.justifyContent = 'center';
+                            // userDiv.style.borderRadius = '15px';
+                            // userDiv.style.marginBottom = '20px';
+
+
+                            if (user.gender === "female") {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                            } else {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./male-avatar1.jpg")';
+
+                            }
+
+
+                            // // Add a click event to redirect the user
+                            // userDiv.addEventListener('click', () => {
+                            //     redirectToOtherUserProfile(email);
+                            // });
+
+                            /// Find the button inside the userDiv
+                            const instaBtn = userDiv.querySelector(".redirect-btn");
+
+                            // Attach event listener with respective user's email
+                            instaBtn.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+                                console.log("redirect btn clicked ....");
+                                redirectToInsta(userDiv.querySelector('.instaId'));
+                            });
+
+
+                            // Find the button inside the userDiv
+                            const sendLikeBtn = userDiv.querySelector(".send-like-btn");
+
+                            // Attach event listener with respective user's email
+                            sendLikeBtn.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+
+                                alert("Be a premium user to send direct like from open pool....");
+                            });
+
+                            // Append the div to the main container
+                            mainDiv.appendChild(userDiv);
+                        });
+
+                    } else {
+                        //Do somethin which show the user that this field is empty as your past activity till now 
+                        const userP = document.createElement('p');
+
+                        const quoteP = document.createElement('p');
+
+                        // userP.innerText =
+                        //     "Looks like the Open Pool is empty for now. Be the first to make an appearance and let potential matches find you!";
+                        // userP.style.width = '90%';
+                        // userP.style.textAlign = 'center';
+                        // userP.style.marginTop = '10vh';
+                        // userP.style.fontSize = '1.15rem';
+                        // userP.style.marginLeft = '5%';
+
+
+                        // quoteP.innerText = '"Premium users can choose to be visible in the Open Pool by toggling the visibility switch in their profile settings. Enable it to let potential matches discover you effortlessly!"';
+                        // quoteP.style.marginTop = '10vh';
+                        // quoteP.style.width = '80%';
+                        // quoteP.style.textAlign = 'center';
+                        // quoteP.style.fontSize = '1.5rem';
+                        // quoteP.style.marginLeft = '10%';
+
+                        // Styling for user message (Open Pool empty)
+                        userP.innerText = "Looks like the Open Pool is empty for now. Be the first to make an appearance and let potential matches find you!";
+                        userP.style.width = "80%";
+                        userP.style.textAlign = "center";
+                        userP.style.margin = "5vh auto 0 auto"; // Centering with margin
+                        userP.style.fontSize = "1.3rem";
+                        userP.style.fontWeight = "500";
+                        userP.style.color = "black"; // Subtle dark gray
+                        userP.style.lineHeight = "1.5";
+
+                        // Styling for quote message (Premium visibility info)
+                        quoteP.innerText = '"Premium users can choose to be visible in the Open Pool by toggling the visibility switch in their profile settings. Enable it to let potential matches discover you effortlessly!"';
+                        quoteP.style.width = "80%";
+                        quoteP.style.textAlign = "center";
+                        quoteP.style.margin = "5vh auto 0 auto"; // Centering with margin
+                        quoteP.style.fontSize = "1.4rem";
+                        quoteP.style.color = "black"; // Slightly lighter gray
+                        quoteP.style.fontStyle = "italic";
+                        quoteP.style.lineHeight = "1.5";
+                        quoteP.style.borderLeft = "4px solid white"; // Subtle left highlight
+                        quoteP.style.paddingLeft = "15px"; // Space from border
+
+
+
+
+
+                        mainDiv.appendChild(userP);
+                        mainDiv.appendChild(quoteP);
+
+
+                    }
+                }
+
+
+
+
+
+            }
+
+
+
+
+
+            function updateTheDomForMatchedData() {
+
+                const mainDiv = document.querySelector('.matched>div:first-of-type'); // Select the main div
+
+                mainDiv.innerHTML = '';
+
+                console.log("In update DOM FUNC for matched ....");
+
+                // document.querySelector('.likeCount').innerText = likesYouGotCount;
+
+                // likesYouGot = [
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE4211@mnit.ac.in',
+                //     '2023UEE1711@mnit.ac.in',
+                //     '2023UEE1111@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+
+                // ];
+
+                console.log(isTheUserPremium);
+
+                if (matchedCount > 0) {
+                    // Loop through the likesYouGot array and create a div for each email
+                    matched.forEach(user => {
+                        const userDiv = document.createElement('div'); // Create a div for each user
+                        userDiv.classList.add('profile-div');
+                        userDiv.innerHTML = `
+        
+                    <p class="name">${user.name}</p>
+                    <p><span class="branch">${getBranch(user.email)}</span> - <span class="year">${getYear(user.email)}</span></p>
+
+                    <div>
+                        <div class="details">
+                            <p class="instaId">@${user.instaId}</p>
+                        </div>
+
+                        <button class="redirect-btn">
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </button>
+                    </div>
+
+        `;
+                        // userDiv.textContent = email; // Set the email as the text content
+                        // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                        // userDiv.style.padding = '10px';
+                        // userDiv.style.margin = '5px';
+                        // userDiv.style.border = '1px solid #ccc';
+                        // userDiv.style.borderRadius = '5px';
+                        // userDiv.style.backgroundColor = '#f9f9f9';
+                        // userDiv.style.width = '60%';
+                        // userDiv.style.height = '30px';
+                        // userDiv.style.marginLeft = '18%';
+                        // userDiv.style.display = 'flex';
+                        // userDiv.style.alignItems = 'center';
+                        // userDiv.style.justifyContent = 'center';
+                        // userDiv.style.borderRadius = '15px';
+                        // userDiv.style.marginBottom = '20px';
+
+
+                        // // Add a click event to redirect the user
+                        // userDiv.addEventListener('click', () => {
+                        //     redirectToOtherUserProfile(email);
+                        // });
+
+                        // Find the button inside the userDiv
+                        const instaBtn = userDiv.querySelector(".redirect-btn");
+
+                        // Attach event listener with respective user's email
+                        instaBtn.addEventListener("click", (evt) => {
+                            evt.preventDefault();
+                            console.log("redirect btn clicked ....");
+                            redirectToInsta(userDiv.querySelector('.instaId'));
+                        });
+
+                        // Append the div to the main container
+                        mainDiv.appendChild(userDiv);
+                    });
+
+                } else {
+                    //Do somethin which show the user that this field is empty as your past activity till now 
+                    const userP = document.createElement('p');
+
+
+
+                    const quoteP = document.createElement('p');
+
+                    // userP.innerText = "No matches received yet. Keep swiping, your perfect match might just be around the corner!";
+                    // userP.style.width = '100%';
+                    // userP.style.textAlign = 'center';
+                    // userP.style.marginTop = '10vh';
+                    // userP.style.fontSize = '1.15rem';
+
+
+                    // quoteP.innerText = '"Still a bit shy? Your prom partner is waiting just on the other side of the poll—make it happen!"';
+                    // quoteP.style.marginTop = '15vh';
+                    // quoteP.style.width = '80%';
+                    // quoteP.style.textAlign = 'center';
+                    // quoteP.style.fontSize = '1.5rem';
+                    // quoteP.style.marginLeft = '10%';
+
+                    userP.innerText = "No matches received yet. Keep swiping, your perfect match might just be around the corner!";
+                    userP.style.width = '90%';
+                    userP.style.textAlign = 'center';
+                    userP.style.marginTop = '6vh'; // Adjusted for balance
+                    userP.style.fontSize = '1.25rem';
+                    userP.style.fontWeight = '500';
+                    userP.style.color = 'black'; // Softer gray for readability
+                    userP.style.lineHeight = '1.5';
+                    userP.style.marginLeft = '5%';
+
+
+                    quoteP.innerText = '"Still a bit shy? Your prom partner is waiting just on the other side of the poll—make it happen!"';
+                    quoteP.style.marginTop = '12vh'; // Slightly reduced for balance
+                    quoteP.style.width = '80%';
+                    quoteP.style.textAlign = 'center';
+                    quoteP.style.fontSize = '1.6rem'; // Increased slightly for impact
+                    quoteP.style.marginLeft = '10%';
+                    quoteP.style.fontWeight = '500';
+                    quoteP.style.color = 'black'; // Darker gray for emphasis
+                    quoteP.style.lineHeight = '1.6';
+                    quoteP.style.borderLeft = '5px solid white';
+
+
+
+
+
+                    mainDiv.appendChild(userP);
+
+                    mainDiv.appendChild(quoteP);
+                }
+
+
+
+
+            }
+
+
+
+
+
+            function updateTheDomForLikesYouSentData() {
+
+                const mainDiv = document.querySelector('.likes-you-sent>div:first-of-type'); // Select the main div
+
+                mainDiv.innerHTML = '';
+
+                console.log("In update DOM FUNC for likes you sent  ....");
+
+                // document.querySelector('.likeCount').innerText = likesYouGotCount;
+
+                // likesYouGot = [
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE4211@mnit.ac.in',
+                //     '2023UEE1711@mnit.ac.in',
+                //     '2023UEE1111@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+
+                // ];
+
+                console.log(isTheUserPremium);
+
+                if (likesYouSentCount > 0) {
+                    // Loop through the likesYouGot array and create a div for each email
+                    likesYouSent.forEach(user => {
+                        const userDiv = document.createElement('div'); // Create a div for each user
+                        userDiv.classList.add('profile-div');
+                        userDiv.innerHTML = `
+        
+                    <p class="name">${user.name}</p>
+                    <p><span class="branch">${getBranch(user.email)}</span> - <span class="year">${getYear(user.email)}</span></p>
+
+        `;
+                        // userDiv.textContent = email; // Set the email as the text content
+                        // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                        // userDiv.style.padding = '10px';
+                        // userDiv.style.margin = '5px';
+                        // userDiv.style.border = '1px solid #ccc';
+                        // userDiv.style.borderRadius = '5px';
+                        // userDiv.style.backgroundColor = '#f9f9f9';
+                        // userDiv.style.width = '60%';
+                        // userDiv.style.height = '30px';
+                        // userDiv.style.marginLeft = '18%';
+                        // userDiv.style.display = 'flex';
+                        // userDiv.style.alignItems = 'center';
+                        // userDiv.style.justifyContent = 'center';
+                        // userDiv.style.borderRadius = '15px';
+                        // userDiv.style.marginBottom = '20px';
+
+
+                        // // Add a click event to redirect the user
+                        // userDiv.addEventListener('click', () => {
+                        //     redirectToOtherUserProfile(email);
+                        // });
+
+                        // Find the button inside the userDiv
+                        // const instaBtn = userDiv.querySelector(".redirect-btn");
+
+                        // Attach event listener with respective user's email
+                        // instaBtn.addEventListener("click", (evt) => {
+                        //     evt.preventDefault();
+                        //     console.log("redirect btn clicked ....");
+                        //     redirectToInsta(userDiv.querySelector('.instaId'));
+                        // });
+
+                        // Append the div to the main container
+                        mainDiv.appendChild(userDiv);
+                    });
+
+                } else {
+                    //Do somethin which show the user that this field is empty as your past activity till now 
+                    const userP = document.createElement('p');
+
+
+                    const quoteP = document.createElement('p');
+
+                    // userP.innerText = "No like sent till yet.";
+                    // userP.style.width = '100%';
+                    // userP.style.textAlign = 'center';
+                    // userP.style.marginTop = '10vh';
+                    // userP.style.fontSize = '1.15rem';
+
+
+                    // quoteP.innerText = '"Still a bit shy? Your prom partner is waiting just on the other side of the poll—make it happen!"';
+                    // quoteP.style.marginTop = '15vh';
+                    // quoteP.style.width = '80%';
+                    // quoteP.style.textAlign = 'center';
+                    // quoteP.style.fontSize = '1.5rem';
+                    // quoteP.style.marginLeft = '10%';
+
+                    userP.innerText = "No likes sent till yet. Take the first step, your match might just be waiting for you!";
+                    userP.style.width = '90%';
+                    userP.style.textAlign = 'center';
+                    userP.style.marginTop = '6vh'; // Slightly adjusted for balance
+                    userP.style.fontSize = '1.25rem';
+                    userP.style.fontWeight = '500';
+                    userP.style.color = 'black'; // Softer gray for readability
+                    userP.style.lineHeight = '1.5';
+                    userP.style.marginLeft = '5%';
+
+
+                    quoteP.innerText = '"Not ready yet? Your perfect match is just around the corner—don’t let them slip away!"';
+                    quoteP.style.marginTop = '10vh'; // Adjusted margin for balance
+                    quoteP.style.width = '80%';
+                    quoteP.style.textAlign = 'center';
+                    quoteP.style.fontSize = '1.6rem';
+                    quoteP.style.marginLeft = '10%';
+                    quoteP.style.fontWeight = '500';
+                    quoteP.style.color = 'black'; // Darker gray for better emphasis
+                    quoteP.style.lineHeight = '1.6';
+                    quoteP.style.borderLeft = '3px solid white';
+
+
+
+
+
+
+                    mainDiv.appendChild(userP);
+
+                    mainDiv.appendChild(quoteP);
+                }
+
+
+
+            }
+
+
+
+
+            function getBranch(email) {
+                // Extract branch code (6th, 7th, and 8th characters)
+                const branchCode = email.slice(4, 7);
+
+                return branchCode.toUpperCase();
+
+                // // Branch code mappings
+                // const branchMap = {
+                //     "uai": "artifial inteligence engineering",
+                //     "uee": "Electrical Engineering",
+                //     "ucp": "Computer Science and Engineering",
+                //     "uec": "Electronics and Communication Engineering",
+                //     "ume": "Mechanical Engineering",
+                //     "uce": "Civil Engineering",
+                //     "uch": "Chemical Engineering",
+                //     "uar": "Architecture",
+                //     "umt": "Metallurgical and Materials Engineering",
+                // };
+
+                // return branchMap[branchCode] || "Unknown Branch"; // Default if branch not found
+            }
+
+            // Function to hash the name
+            function getHashedName(name) {
+                if (!name || name.length === 0) return ""; // Handle empty cases
+                return name[0] + "*".repeat(10); // Keep the first character, replace the rest with 10 '*'
+            }
+
+            function getYear(email) {
+                // Extract admission year (first 4 characters)
+                const admissionYear = email.slice(0, 4);
+
+                // Extract branch code
+                const branchCode = email.slice(4, 7).toUpperCase();
+
+                // If the branch is "UAR" (Architecture), add 5 years, otherwise add 4 years
+                const graduationYear = branchCode === "uar" ? parseInt(admissionYear) + 5 : parseInt(admissionYear) + 4;
+
+                return `${admissionYear}-${graduationYear}'`;
+            }
+
+
+
+
+
+            //Updating DOM for likes data
+            // updateTheDomFromLikesData(likesYouGotCount, likesYouGot){
+
+            // } Bydefault it will update DOM for matched (2)(middle) page data
+            function updateTheDomForLikesYouGotData() {
+                // updateDisplayVisibilityOfSectionDivs();
+                heading.innerText = "Likes you got !";
+                const mainDiv = document.querySelector('.likes-you-got>div:first-of-type'); // Select the main div
+
+                mainDiv.innerHTML = '';
+
+                console.log("In update DOM FUNC ....");
+
+                // document.querySelector('.likeCount').innerText = likesYouGotCount;
+
+                // likesYouGot = [
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE4211@mnit.ac.in',
+                //     '2023UEE1711@mnit.ac.in',
+                //     '2023UEE1111@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+                //     '2023UEE1211@mnit.ac.in',
+
+                // ];
+
+                console.log(isTheUserPremium);
+
+                if (isTheUserPremium) {
+                    //If the user is premium
+                    console.log("Inside the premium section if ....");
+                    if (likesYouGotCount > 0) {
+                        // Loop through the likesYouGot array and create a div for each email
+                        likesYouGot.forEach(user => {
+                            const userDiv = document.createElement('div'); // Create a div for each user
+                            userDiv.classList.add('profile-div');
+                            userDiv.innerHTML = `
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn">Make it a Match</button>
+                    </div>
+
+                    <p class="name">${user.name}</p>
+                    <p class="branch">${getBranch(user.email)}</p>
+                    <p class="year">${getYear(user.email)}</p>
+                    <p class="instaId"> <span onclick="redirectToInsta(this)"
+                                class="redirect-icon">@${user.instaId}</span></p>
+                    `;
+                            // userDiv.textContent = email; // Set the email as the text content
+                            // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                            // userDiv.style.padding = '10px';
+                            // userDiv.style.margin = '5px';
+                            // userDiv.style.border = '1px solid #ccc';
+                            // userDiv.style.borderRadius = '5px';
+                            // userDiv.style.backgroundColor = '#f9f9f9';
+                            // userDiv.style.width = '60%';
+                            // userDiv.style.height = '30px';
+                            // userDiv.style.marginLeft = '18%';
+                            // userDiv.style.display = 'flex';
+                            // userDiv.style.alignItems = 'center';
+                            // userDiv.style.justifyContent = 'center';
+                            // userDiv.style.borderRadius = '15px';
+                            // userDiv.style.marginBottom = '20px';
+
+
+                            if (user.gender === "female") {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                            } else {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./male-avatar1.jpg")';
+
+                            }
+
+
+                            // // Add a click event to redirect the user
+                            // userDiv.addEventListener('click', () => {
+                            //     redirectToOtherUserProfile(email);
+                            // });
+
+                            // Find the button inside the userDiv
+                            const matchButton = userDiv.querySelector(".make-match-btn");
+
+                            // Attach even+t listener with respective user's email
+                            matchButton.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+                                console.log("MAKE A MATCH BUTTON CLICKED");
+
+                                console.log("The other user email is : ", user.email);
+
+                                makeItAMatch(user.email);
+                            });
+
+                            // Append the div to the main container
+                            mainDiv.appendChild(userDiv);
+                        });
+
+                    } else {
+                        //Do somethin which show the user that this field is empty as your past activity till now 
+                        const userP = document.createElement('p');
+
+                        const quoteP = document.createElement('p');
+
+                        // userP.innerText = "No like recieved till yet.";
+                        // userP.style.width = '100%';
+                        // userP.style.textAlign = 'center';
+                        // userP.style.marginTop = '10vh';
+                        // userP.style.fontSize = '1.15rem';
+
+
+                        // quoteP.innerText = '"Still a bit shy? Your prom partner is waiting just on the other side of the poll—make it happen!"';
+                        // quoteP.style.marginTop = '15vh';
+                        // quoteP.style.width = '80%';
+                        // quoteP.style.textAlign = 'center';
+                        // quoteP.style.fontSize = '1.5rem';
+                        // quoteP.style.marginLeft = '10%';
+
+                        userP.innerText = "No likes received yet. What are you waiting for? Your match might be just one swipe away!";
+                        userP.style.width = '90%';
+                        userP.style.textAlign = 'center';
+                        userP.style.marginTop = '6vh';
+                        userP.style.fontSize = '1.15rem';
+                        userP.style.fontWeight = '500';
+                        userP.style.color = 'black';
+                        userP.style.lineHeight = '1.5';
+                        userP.style.marginLeft = '5%';
+
+                        quoteP.innerText = '"Feeling a little shy? Your prom partner could be waiting for you on the other side—make the first move!"';
+                        quoteP.style.marginTop = '6vh';
+                        quoteP.style.width = '80%';
+                        quoteP.style.textAlign = 'center';
+                        quoteP.style.fontSize = '1.5rem';
+                        quoteP.style.marginLeft = '10%';
+                        quoteP.style.fontWeight = '500';
+                        quoteP.style.color = 'black';
+                        quoteP.style.lineHeight = '1.6';
+                        quoteP.style.borderLeft = '3px solid white';
+
+
+
+
+
+
+
+
+                        mainDiv.appendChild(userP);
+                        mainDiv.appendChild(quoteP);
+                    }
+                } else {
+                    //If the user is no premium
+                    console.log("Inside the non premium sec ....");
+                    if (likesYouGotCount > 0) {
+                        console.log("Inside non premium sec loop ...");
+                        // Loop through the likesYouGot array and create a div for each email
+                        likesYouGot.forEach(user => {
+                            console.log(user);
+                            const userDiv = document.createElement('div'); // Create a div for each user
+                            userDiv.classList.add('profile-div');
+                            userDiv.innerHTML = `
+                    <div>
+                        <div class="avatar-div">
+                        </div>
+                        <button class="make-match-btn">Make it a Match</button>
+                    </div>
+
+                    <p class="name">${getHashedName(user.name)}</p>
+                    <p class="branch">U**</p>
+                    <p class="year">${getYear(user.email)}</p>
+                    <p class="instaId"><a href=""><span class="redirect-icon" >@**********</span></a></p>
+                    `;
+                            // userDiv.textContent = email; // Set the email as the text content
+                            // userDiv.style.cursor = 'pointer'; // Make it look clickable
+                            // userDiv.style.padding = '10px';
+                            // userDiv.style.margin = '5px';
+                            // userDiv.style.border = '1px solid #ccc';
+                            // userDiv.style.borderRadius = '5px';
+                            // userDiv.style.backgroundColor = '#f9f9f9';
+                            // userDiv.style.width = '60%';
+                            // userDiv.style.height = '30px';
+                            // userDiv.style.marginLeft = '18%';
+                            // userDiv.style.display = 'flex';
+                            // userDiv.style.alignItems = 'center';
+                            // userDiv.style.justifyContent = 'center';
+                            // userDiv.style.borderRadius = '15px';
+                            // userDiv.style.marginBottom = '20px';
+
+
+                            if (user.gender === "female") {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                            } else {
+                                userDiv.querySelector('.avatar-div').style.backgroundImage = 'url("./male-avatar1.jpg")';
+
+                            }
+
+
+                            // // Add a click event to redirect the user
+                            // userDiv.addEventListener('click', () => {
+                            //     redirectToOtherUserProfile(email);
+                            // });
+
+                            // Find the button inside the userDiv
+                            const matchButton = userDiv.querySelector(".make-match-btn");
+
+                            // Attach event listener with respective user's email
+                            matchButton.addEventListener("click", (evt) => {
+                                evt.preventDefault();
+
+
+                                console.log("MAKE A MATCH BUTTON CLICKED");
+
+                                console.log("The other user email is : ", user.email);
+
+
+                                alert("Be a premium user to, make a match with likes recieved ....");
+                            });
+
+                            // Append the div to the main-div
+                            mainDiv.appendChild(userDiv);
+                        });
+
+                    } else {
+                        //Do somethin which show the user that this field is empty as your past activity till now 
+                        const userP = document.createElement('p');
+                        const quoteP = document.createElement('p');
+
+
+                        userP.innerText = "No likes received yet. What are you waiting for? Your match might be just one swipe away!";
+                        userP.style.width = '90%';
+                        userP.style.textAlign = 'center';
+                        userP.style.marginTop = '6vh';
+                        userP.style.fontSize = '1.15rem';
+                        userP.style.fontWeight = '500';
+                        userP.style.color = 'black';
+                        userP.style.lineHeight = '1.5';
+                        userP.style.marginLeft = '5%';
+
+                        quoteP.innerText = '"Feeling a little shy? Your prom partner could be waiting for you on the other side—make the first move!"';
+                        quoteP.style.marginTop = '6vh';
+                        quoteP.style.width = '80%';
+                        quoteP.style.textAlign = 'center';
+                        quoteP.style.fontSize = '1.5rem';
+                        quoteP.style.marginLeft = '10%';
+                        quoteP.style.fontWeight = '500';
+                        quoteP.style.color = 'black';
+                        quoteP.style.lineHeight = '1.6';
+                        quoteP.style.borderLeft = '3px solid white';
+
+
+
+                        mainDiv.appendChild(userP);
+                        mainDiv.appendChild(quoteP);
+                    }
+                }
+
+
+
+            }
+
+            // // Function to redirect to another user profile template
+            // function redirectToOtherUserProfile(email) {
+            //     // const url = `otherUserProfileTemplate.html?email=${encodeURIComponent(email)}`;
+            //     window.location.href = './otherUserProfileTemplate.html'; // Redirect to the page with the email as a query parameter
+            // }//Use ejs for this function that better other for the redirection how can i pass the email, to gather the data of respective user and show it on page.
+
+
+            function redirectToInsta(span) {
+                // Get the innerText of the span, which contains the Insta ID (with @)
+                const instaId = span.innerText.trim();
+
+                // Remove the '@' symbol from the Insta ID
+                const formattedInstaId = instaId.startsWith('@') ? instaId.slice(1) : instaId;
+
+                // Construct the Instagram mobile URL (deep link) and the web URL
+                const instaAppUrl = `instagram://user?username=${formattedInstaId}`;
+                const instaWebUrl = `https://www.instagram.com/${formattedInstaId}`;
+
+                // Try to open the Instagram app, fallback to web if it fails
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Check if user is on mobile
+
+                if (isMobile) {
+                    // Try to open Instagram app (mobile-specific deep link)
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.src = instaAppUrl;
+                    document.body.appendChild(iframe);
+
+                    // Fallback to the web version after a short delay in case the app is not available
+                    setTimeout(() => {
+                        window.location.href = instaWebUrl;
+                    }, 2000); // Fallback delay (2 seconds)
+                } else {
+                    // If not on mobile, redirect to the web version directly
+                    window.location.href = instaWebUrl;
+                }
+            }
+
+
+            //fetching the likes data for likes you got which is likesData1
+            async function fetchLikesData1() {
+                const url = 'https://blitzprombackenddeploytry2.onrender.com/likesData1'; // Backend endpoint
+
+                const token = localStorage.getItem('token');
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("likesData1 : ", data);
+                        console.log('Likes Received:', data.likesYouGotCount);
+                        console.log('Liked By Users:', data.likesYouGot);
+
+                        email = data.userEmail;
+                        likesYouGotCount = data.likesYouGot.length;
+                        likesYouGot = data.likesYouGot;
+                        isTheUserPremium = data.isPremiumUser;
+
+                        console.log(likesYouGot);
+                        console.log(likesYouGotCount);
+                        //here data.likesYouGot is an array of emails
+
+                        // You can update the DOM here
+                        // document.querySelector('.main-div .name').textContent = currentUserEmail;
+                        // document.querySelector('.main-div .branch').textContent = 'Branch info here'; // Update branch dynamically if needed
+                        // document.querySelector('.main-div .year').textContent = 'Year info here'; // Update year dynamically
+                        // document.querySelector('.main-div .insta a').textContent = `${data.likesYouGot.length} Likes`;
+                        // reassignTheData();
+                        // updateTheDomForLikesYouGotData();
+                    } else {
+                        console.error('Failed to fetch likes data:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error fetching likes data:', error);
+                }
+            }
+
+
+            //fetching the likes data for likes you sent and matched which is likesData2
+            async function fetchLikesData2() {
+                // updateDisplayVisibilityOfSectionDivs();
+
+                const url = 'https://blitzprombackenddeploytry2.onrender.com/likesData2'; // Backend endpoint
+
+                const token = localStorage.getItem('token');
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("likesData2 : ", data);
+
+                        matched = data.matched;
+                        matchedCount = data.matchedCount;
+
+                        likesYouSent = data.likesYouSent;
+                        likesYouSentCount = data.likesYouSentCount;
+                        // console.log('Likes Received:', data.likesYouGotCount);
+                        // console.log('Liked By Users:', data.likesYouGot);
+                        //here data.likesYouGot is an array of emails
+
+                        // You can update the DOM here
+                        // document.querySelector('.main-div .name').textContent = currentUserEmail;
+                        // document.querySelector('.main-div .branch').textContent = 'Branch info here'; // Update branch dynamically if needed
+                        // document.querySelector('.main-div .year').textContent = 'Year info here'; // Update year dynamically
+                        // document.querySelector('.main-div .insta a').textContent = `${data.likesYouGot.length} Likes`;
+
+                        // updateTheDomForLikesYouSentData(data.likesYouSent, data.likesYouSentCount);
+                        // updateTheDomForMatchedData(matched, matchedCount);
+
+                        console.log(matched);
+                        console.log(matchedCount);
+                        console.log(likesYouSent);
+                        console.log(likesYouSentCount);
+                    } else {
+                        console.error('Failed to fetch likes data:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error fetching likes data:', error);
+                }
+            }
+
+
+
+
+
+
+
+            //fetching the likes data for likes you sent and matched which is likesData2
+            async function fetchLikesData3() {
+                // updateDisplayVisibilityOfSectionDivs();
+
+                const url = 'https://blitzprombackenddeploytry2.onrender.com/likesData3'; // Backend endpoint
+
+                const token = localStorage.getItem('token');
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("likesData3 : ", data);
+
+                        openPoolData = data.openPoolUsers;
+                        openPoolDataCount = data.openPoolCount;
+
+
+                        // updateDomForOpenPoolData(openPoolData, openPoolDataCount);
+
+
+                    } else {
+                        console.error('Failed to fetch likes data:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error fetching likes data:', error);
+                }
+            }
+
+
+            // function reassi                {
+            //                 log("hi from re assign data ...");
+
+
+            // // }
+            // function reassignTheData() {
+            //     // Convert matched emails into a Set for O(1) lookup
+            //     const matchedEmails = new Set(matched.map(user => user.email));
+
+            //     // Convert likesSent emails into a Set for O(1) lookup
+            //     const likesSentEmails = new Set(likesYouSent.map(user => user.email));
+
+            //     // Remove users in likesSent from openPool
+            //     const updatedOpenPool = openPoolData.filter(user => !likesSentEmails.has(user.email));
+
+            //     // Remove matched users from likesSent
+            //     const updatedLikesSent = likesYouSent.filter(user => !matchedEmails.has(user.email));
+
+            //     // Remove matched users from likesGot
+            //     const updatedLikesGot = likesYouGot.filter(user => !matchedEmails.has(user.email));
+
+
+            //     likesYouSent = updatedLikesSent;
+            //     likesYouGot = updatedLikesGot;
+            //     openPoolData = updatedOpenPool;
+
+            //     likesYouGotCount = likesYouGot.length;
+            //     likesYouSentCount = likesYouSent.length;
+            //     openPoolDataCount = openPoolData.length;
+            //     matchedCount = matched.length;
+
+
+            //     updateTheDomForLikesYouGotData();
+            //     updateTheDomForLikesYouSentData();
+            //     updateTheDomForMatchedData();
+            //     updateDomForOpenPoolData();
+            // }
+
+
+            function reassignTheData() {
+                try {
+                    // Ensure arrays are defined to prevent errors
+                    if (!Array.isArray(matched) || !Array.isArray(likesYouSent) || !Array.isArray(likesYouGot) || !Array.isArray(openPoolData)) {
+                        console.error("One or more data arrays are undefined or not valid.");
+                        return;
+                    }
+
+                    console.log("Form reassignThedata open pool data is ", openPoolData);
+
+                    // Convert matched emails into a Set for O(1) lookup, ignoring null/undefined users
+                    const matchedEmails = new Set(matched.filter(user => user && user.email).map(user => user.email));
+
+                    // Convert likesSent emails into a Set for O(1) lookup, ignoring null/undefined users
+                    const likesSentEmails = new Set(likesYouSent.filter(user => user && user.email).map(user => user.email));
+
+                    // Remove users in likesSent from openPool (skipping null/undefined users)
+                    const updatedOpenPool = openPoolData.filter(user => user && user.email && !likesSentEmails.has(user.email));
+
+                    // Remove matched users from likesSent (skipping null/undefined users)
+                    const updatedLikesSent = likesYouSent.filter(user => user && user.email && !matchedEmails.has(user.email));
+
+                    // Remove matched users from likesGot (skipping null/undefined users)
+                    const updatedLikesGot = likesYouGot.filter(user => user && user.email && !matchedEmails.has(user.email));
+
+                    console.log("Open pool data is after filtering ", updatedOpenPool)
+
+                    // Reassign updated arrays
+                    likesYouSent = updatedLikesSent;
+                    likesYouGot = updatedLikesGot;
+                    openPoolData = updatedOpenPool;
+
+                    console.log(openPoolData);
+
+                    // Update counts safely
+                    likesYouGotCount = Array.isArray(likesYouGot) ? likesYouGot.length : 0;
+                    likesYouSentCount = Array.isArray(likesYouSent) ? likesYouSent.length : 0;
+                    openPoolDataCount = Array.isArray(openPoolData) ? openPoolData.length : 0;
+                    matchedCount = Array.isArray(matched) ? matched.length : 0;
+
+
+                    updateTheDomForLikesYouGotData();
+                    updateTheDomForLikesYouSentData();
+                    updateTheDomForMatchedData();
+                    updateDomForOpenPoolData();
+
+
+                    updateNavStatCounts();
+                } catch (err) {
+                    console.log(err);
+                    alert("Some erroe occured, apology for inconvenience. Report it to us from the contact section of our home page.");
+                }
+            }
+
+            function updateNavStatCounts() {
+
+                console.log(likesYouGotCount);
+                const count = document.querySelector('.navbar .likes-button');
+                count.innerText = likesYouGotCount;
+
+                if (likesYouGotCount < 10) {
+                    count.style.paddingRight = '7px';
+                } else if (likesYouGotCount < 100) {
+
+                } else {
+                    count.style.paddingLeft = '2px';
+
+                }
+
+                document.querySelector('.navbar .polls-button').innerText = 7;
+            }
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blitzProm</title>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: aqua;
+            width: 100vw;
+            box-sizing: border-box;
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+        }
+
+        nav {
+            width: auto;
+            height: 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: white;
+
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        nav h1 {
+            font-size: 2.25rem;
+            font-family: Rouge Script;
+
+            width: 40vw;
+            font-weight: 200;
+
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            list-style-type: none;
+            gap: 8px;
+
+            width: 40vw;
+        }
+
+        nav li {
+            height: auto;
+            width: auto;
+
+        }
+
+        nav li button {
+            all: unset;
+            width: 25px;
+            height: 25px;
+            font-size: 0.9rem;
+            color: rgb(255, 255, 255);
+        }
+
+        nav img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: contain;
+        }
+
+
+        nav .leaderboard-button {
+            background-image: url('./leaderboard-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 20px;
+            height: 20px;
+
+
+        }
+
+        nav .likes-button {
+            border: none;
+            background-image: url('./likes-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 3px;
+            padding-top: 2px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+
+
+        }
+
+        nav .polls-button {
+            background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 5px;
+            padding-top: 3px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+
+
+        }
+
+        nav .profile-button {
+            /* background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; */
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            /* padding-right: 5px;
+            padding-top: 3px; */
+
+            color: rgb(0, 0, 0);
+
+            font-size: 1.4rem;
+            font-weight: 100;
+
+        }
+
+        .main-div {
+            width: 100%;
+            height: auto;
+
+
+        }
+
+        /* .main-div .profile-h2 {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 2.25rem;
+
+        }
+
+        .main-div .profile-div {
+            width: 80%;
+            height: 200px;
+
+            margin-left: 10%;
+            border: 2px solid white;
+            border-radius: 25px;
+
+            background: linear-gradient(180deg, #480c8e, rgb(124, 34, 140), #174b9f);
+            backdrop-filter: blur(100px);
+            color: white;
+
+        }
+
+        .main-div .profile-div .name {
+            width: 100%;
+            height: 80px;
+
+            font-size: 1.5rem;
+            margin-left: 10px;
+
+            font-weight: 800px;
+            text-shadow: 2px 2px 8px white;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .main-div .profile-div .branch {
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        .main-div .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        .main-div .profile-div .edit-div {
+            width: 100%;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .main-div .profile-div .edit-div .insta {
+            color: white;
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        .main-div .profile-div .edit-div .insta a {
+            color: white;
+
+        }
+
+        .main-div .profile-div .edit-div .edit-btn {
+            all: unset;
+            height: auto;
+            width: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+
+        }
+
+        .main-div .profile-div .edit-btn i {
+            width: 100%;
+            height: 100%;
+
+            font-weight: 100;
+            font-size: 1.5rem;
+        } */
+
+
+
+
+
+
+        .main-div .profile-div {
+            width: 80%;
+            height: 65vh;
+
+            margin-left: 10%;
+            margin-top: 5vh;
+            border: 1px solid black;
+            border-radius: 25px;
+
+            background-color: rgb(162, 241, 255);
+        }
+
+        .main-div .profile-div .edit-btn {
+            all: unset;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            margin-top: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main-div .profile-div .edit-btn i {
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+        }
+
+        .main-div .profile-div .avatar-div {
+            width: 35%;
+            height: 22%;
+
+            margin-left: 32.5%;
+
+            border: 1px solid black;
+            border-radius: 50%;
+
+            background-color: rgb(175, 64, 255);
+
+            background-image: url('male-avatar1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .main-div .profile-div p:not(.password) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-div .profile-div .name {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: black;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: 600;
+
+            /* background-color: red; */
+        }
+
+        .main-div .profile-div .branch {
+            width: 100%;
+            height: 30px;
+            font-size: 1.1rem;
+            color: black;
+
+            font-weight: 400;
+
+            /* background-color: teal; */
+        }
+
+        .main-div .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 1.1rem;
+            color: black;
+
+            /* background-color: yellowgreen; */
+
+        }
+
+        .main-div .profile-div .open-for-pool {
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgb(213, 62, 255);
+
+            font-weight: 600;
+
+            /* background-color: rebeccapurple; */
+        }
+
+        .main-div .profile-div .open-for-pool span:first-of-type {
+            font-size: 1rem;
+
+        }
+
+        .main-div .profile-div .open-for-pool span:last-of-type {
+            font-size: 1rem;
+        }
+
+
+        .main-div .profile-div .instaId {
+            width: 100%;
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgb(39, 39, 39);
+
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-div .profile-div .password-div {
+            width: 80%;
+            height: 30px;
+            margin-left: 10%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .main-div .profile-div .password-div p {
+            font-size: 1rem;
+            text-align: left;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            color: rgb(0, 0, 0);
+
+        }
+
+        .main-div .profile-div .password-div button {
+            all: unset;
+
+        }
+
+        .main-div .profile-div .logout-button {
+            all: unset;
+
+            width: 40%;
+            margin-left: 30%;
+            height: 10%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 20px;
+
+            color: red;
+            font-size: 1.5rem;
+            border: 1px solid grey;
+            border-radius: 15px;
+
+            background-color: rgb(255, 255, 255);
+        }
+
+        .main-div .get-premium-btn {
+            all: unset;
+            width: 50vw;
+            height: 5vh;
+
+            margin-left: 25vw;
+            margin-top: 40px;
+            background-color: white;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.25rem;
+            color: red;
+
+            border-radius: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">
+            <h1>Blitz Prom</h1>
+        </a>
+
+        <ul>
+            <li><button class="leaderboard-button"></button></li>
+            <li><button class="likes-button">83</button></li>
+            <li><button class="polls-button">7</button></li>
+            <li><button type="button" class="profile-button"><i class="fa-solid fa-user"></i></button></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="main-div">
+
+        <!-- <h2 class="profile-h2">Profile</h2>
+
+        <div class="profile-div">
+
+            <p class="name">Kunal Thapliyal</p>
+            <p class="branch">EE</p>
+            <p class="year">2023-27</p>
+            <div class="edit-div">
+                <p class="insta"><a href="">@_._vikas.07</a></p>
+                <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+
+        </div> -->
+
+
+
+
+
+
+
+        <div class="profile-div">
+
+            <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+
+            <div class="avatar-div">
+
+            </div>
+
+            <p class="name">Vikas Chandwara</p>
+            <p class="branch">Electrical Engineering</p>
+            <p class="year">2023-27</p>
+            <p class="open-for-pool"><span>Open pool visiblity </span><span> - </span><span
+                    class="open-for-pool-span">ON</span></p>
+            <p class="instaId"><a href="">@_._vikas.07</a></p>
+
+            <div class="password-div">
+                <p class="password">**********</p>
+                <button class="password-toggle"><i class="fa-regular fa-eye-slash"></i></button>
+            </div>
+
+            <button class="logout-button"> LOGOUT </button>
+        </div>
+
+
+
+        <button class="get-premium-btn">Get Premium !</button>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+
+
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Fetch the profile info
+        document.addEventListener('DOMContentLoaded', async () => {
+            fetchProfile();
+
+        });
+
+
+
+        //<i class="fa-regular fa-eye"></i>  HelloWorld
+        let password;
+        let passwordVisible = false;
+        let openEyeIcon = '<i class="fa-regular fa-eye"></i>';
+        let closedEyeIcon = '<i class="fa-regular fa-eye-slash">';
+
+        const editBtn = document.querySelector('.main-div .profile-div .edit-btn');
+        const name = document.querySelector('.main-div .name');
+        const branch = document.querySelector('.main-div .branch');
+        const year = document.querySelector('.main-div .year');
+        const insta = document.querySelector('.main-div .instaId a');
+        const passwordP = document.querySelector('.main-div .profile-div .password')
+
+        const passwordToggleBtn = document.querySelector('.main-div .profile-div .password-toggle');
+        const logoutBtn = document.querySelector('.main-div .profile-div .logout-button');
+        const getPremiumBtn = document.querySelector('.get-premium-btn');
+
+        getPremiumBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            window.location.href = './premiumOptions.html';
+        })
+
+        passwordToggleBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            console.log("Visiblity btn clicked ....");
+
+            if (passwordVisible) {
+                passwordP.innerText = password;
+                passwordToggleBtn.innerHTML = openEyeIcon;
+                passwordVisible = !passwordVisible;
+            } else {
+                passwordP.innerText = "**********";
+                passwordToggleBtn.innerHTML = closedEyeIcon;
+                passwordVisible = !passwordVisible;
+            }
+
+        });
+
+        logoutBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            if (localStorage.getItem('token')) {
+                localStorage.removeItem('token');
+            } else {
+                alert("Already logged out ....");
+            }
+            window.location.href = './index.html';
+
+        });
+
+        editBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            if (localStorage.getItem('token')) {
+                window.location.href = './editProfilePage.html';
+
+            } else {
+                alert("Log in to use our service ....");
+                window.location.href = './index.html';
+
+            }
+
+        });
+
+        document.querySelector('.navbar .leaderboard-button').addEventListener("click", (evt) => {
+            evt.preventDefault();
+            console.log("leaderboard button clicked ...");
+
+            if (localStorage.getItem('token')) {
+                window.location.href = './leaderboard.html';
+
+            } else {
+                alert("Log in to use our service ....");
+                window.location.href = './index.html';
+
+            }
+        });
+        document.querySelector('.navbar .likes-button').addEventListener("click", (evt) => {
+            evt.preventDefault();
+            console.log("likes button clicked ...");
+
+            if (localStorage.getItem('token')) {
+                window.location.href = './likes.html';
+
+            } else {
+                alert("Log in to use our service ....");
+                window.location.href = './index.html';
+
+            }
+
+        });
+
+        document.querySelector('.navbar .polls-button').addEventListener("click", (evt) => {
+            evt.preventDefault();
+
+            if (localStorage.getItem('token')) {
+
+                console.log("polls button clicked ...");
+                window.location.href = './pollPage.html';
+            } else {
+                alert("Log in to use our service ....");
+                window.location.href = './index.html';
+
+            }
+
+        });
+        document.querySelector('.navbar .profile-button').addEventListener("click", (evt) => {
+            evt.preventDefault();
+
+            if (localStorage.getItem('token')) {
+
+                console.log("Profile button clicked ...");
+                location.reload();
+            } else {
+                alert("Log in to use our service ....");
+                window.location.href = './index.html';
+
+            }
+
+
+        });
+
+
+
+
+        //func to fetch profile details 
+        async function fetchProfile() {
+            const token = localStorage.getItem('token'); // Replace with your actual JWT token
+            const url = 'https://blitzprombackenddeploytry2.onrender.com/profile'; // Replace with your backend endpoint
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log(response);
+
+                if (response.ok) {
+                    const profile = await response.json();
+
+                    console.log(profile);
+
+                    if (profile.gender === 'female') {
+                        document.querySelector('.main-div .profile-div .avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                    } else {
+                        document.querySelector('.main-div .profile-div .avatar-div').style.backgroundImage = 'url("./male-avatar1.jpg")';
+                    }
+
+                    // Update DOM elements with the profile details
+                    name.textContent = profile.name;
+                    branch.textContent = getBranchName(profile.branch); // Assuming branch comes from email or response
+                    year.textContent = getYearRange(profile.year, profile.branch); // Assuming year comes from email or response
+                    insta.textContent = `@${profile.instaId}`;
+                    insta.href = `https://www.instagram.com/${profile.instaId}`;
+
+                    const openForPoolSpan = document.querySelector('.open-for-pool-span');
+
+                    console.log(profile.isPremiumUser);
+                    if (profile.isPremiumUser) {
+                        console.log(profile.upForOpenPool);
+                        if (profile.upForOpenPool) {
+                            openForPoolSpan.innerText = ' ON';
+                        } else {
+                            console.log("hello ....");
+                            openForPoolSpan.innerText = ' OFF';
+                        }
+                    } else {
+                        openForPoolSpan.innerText = ' OFF';
+                    }
+
+                    password = profile.password;
+
+                    console.log(password);
+                } else {
+                    console.error('Failed to fetch profile:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error: in fetching the profile info ....', error);
+            }
+        }
+
+
+
+
+
+        function getYearRange(year, branchCode) {
+            const duration = branchCode.toLowerCase() === 'ar' ? 5 : 4;
+            const finalYear = Number(year.toString().slice(-2)) + duration;
+
+            console.log(finalYear);
+
+            return `${year}-${finalYear.toString()}'`;  // This ensures correct formatting
+        }
+
+
+        function getBranchName(branchCode) {
+            const code = branchCode.toLowerCase().toString().slice(-2);
+            const branches = {
+                ee: 'Electrical Engineering',
+                me: 'Mechanical Engineering',
+                ai: 'Artificial Intelligence',
+                cp: 'Computer Science and Engineering',
+                ce: 'Civil Engineering',
+                ar: 'Architecture',
+                it: 'Information Technology',
+                ec: 'Electronics and Communication',
+                bi: 'Biotechnology'
+            };
+
+            if (branches[code]) {
+                return branches[code];
+            } else {
+                return 'Unknown Branch';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

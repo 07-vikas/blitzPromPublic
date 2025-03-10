@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom SweetAlert2 Alert</title>
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Optional: Make the page look nice */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Function to show a simple and aesthetic SweetAlert2 modal
+        async function showCustomAlert(title, text) {
+            // Show the SweetAlert2 alert and wait for user interaction
+            await Swal.fire({
+                title: title, // Title passed to function
+                text: text,   // Text passed to function
+                icon: 'info', // Icon to represent the alert
+                confirmButtonText: 'Got it', // Customize button text
+                confirmButtonColor: '#ff5f6d', // Button color
+                background: '#fff7f6', // Background color for the alert
+                backdrop: 'rgba(0,0,0,0.4)', // Dark overlay behind the alert
+                showConfirmButton: true, // Show only the confirmation button
+                willClose: () => {
+                    console.log("Alert closed! Continue execution.");
+                }
+            });
+            // Code below will execute after the user dismisses the alert
+            console.log("You can now continue with the next steps!");
+        }
+        console.log("Hi");
+
+        // Call the function when needed
+        showCustomAlert("Processing Complete", "Your action was successful! You may continue.");
+
+        console.log("hello");
+
+
+    </script>
+</body>
+
+</html>

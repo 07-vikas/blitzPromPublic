@@ -1,0 +1,619 @@
+<!DOCTYindex.html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>blitzProm</title>
+        <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <a href="index.html">
+                <h1>Blitz Prom</h1>
+            </a>
+
+            <ul>
+                <li><button class="leaderboard-button"></button></li>
+                <li><button class="likes-button"></button></li>
+                <li><button class="polls-button">7</button></li>
+                <li><button type="button" class="profile-button"><i class="fa-solid fa-user"></i></button></li>
+
+            </ul>
+
+        </nav>
+
+        <div class="main-div">
+            <div>
+                <h2>PROM</h2>
+                <h2>POLL</h2>
+
+                <!-- <h2>POLL</h2> -->
+
+            </div>
+            <p class="poll-quetion"></p>
+
+            <button class="option-div option1-div">
+                <div class="short-name-div">
+
+                </div>
+                <p class="name"></p>
+                <div class="year-div">
+
+                </div>
+            </button>
+            <button class="option-div option2-div">
+                <div class="short-name-div">
+
+                </div>
+                <p class="name"></p>
+                <div class="year-div">
+
+                </div>
+            </button>
+            <button class="option-div option3-div">
+                <div class="short-name-div">
+
+                </div>
+                <p class="name"></p>
+                <div class="year-div">
+
+                </div>
+            </button>
+            <button class="option-div option4-div">
+                <div class="short-name-div">
+
+                </div>
+                <p class="name"></p>
+                <div class="year-div">
+
+                </div>
+            </button>
+
+            <button class="skip-div">
+                Skip
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+        <script>
+
+            function redirectIfNotMobile() {
+                console.log("Inside device detect func ....");
+
+                // Get the user agent string and platform
+                const userAgent = navigator.userAgent.toLowerCase();
+                const platform = navigator.platform.toLowerCase();
+                console.log("User Agent: ", userAgent); // Log the user  agent
+                console.log("Platform: ", platform); // Log the platform
+
+                // Screen size: mobile devices typically have a width less than 1024px
+                const screenWidth = window.innerWidth;
+                console.log("Screen Width: ", screenWidth); // Log the screen width
+
+                // Touch event detection (mobile devices support touch events)
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+                // Regular expression for mobile devices based on user-agent
+                const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+                const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+                // Combine checks to ensure the user is on a mobile or tablet device
+                const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+                // Log the final result of the check
+                console.log("Is Mobile (Final Check): ", isMobile);
+
+                // If not mobile or if user is on a PC, redirect them
+                if (!isMobile) {
+                    console.log("Redirecting to non-mobile page...");
+                    window.location.href = "./hello.html"; // Modify URL as needed
+                }
+            }
+
+            // Call the function after the page loads
+            window.onload = redirectIfNotMobile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            let options;
+
+            const option1Btn = document.querySelector('.option1-div');
+            const option2Btn = document.querySelector('.option2-div');
+            const option3Btn = document.querySelector('.option3-div');
+            const option4Btn = document.querySelector('.option4-div');
+            const skipBtn = document.querySelector('.skip-div');
+            const pollQuestion = document.querySelector('.poll-quetion');
+
+            let clickCounts = 0;
+            let email;
+
+
+            //question array
+            function updateQuestion() {
+                const questionArray = [
+                    "Who would you choose as your prom date?",
+                    "Who's most likely to make your heart skip a beat?",
+                    "Which celebrity crush resembles your ideal partner?",
+                    "Who would you share a late-night walk under the stars with?",
+                    "What's the perfect movie genre for a date night?",
+                    "Who do you think has the best smile in your batch?",
+                    "Who's the most likely to give you butterflies?",
+                    "What’s your ideal first date idea?",
+                    "Who would you invite for a cozy coffee date?",
+                    "Which professor would you least want to see on a date?",
+                    "Who’s the best at pulling off a romantic gesture?",
+                    "What’s the most romantic spot on campus for a date?",
+                    "Who would you trust to plan a dream date?",
+                    "Which fictional couple gives you major relationship goals?",
+                    "Who’s the most charming person in your department?",
+                    "Which of your friends would play cupid for you?",
+                    "What’s the best outfit for a perfect date night?",
+                    "Who would you serenade with a love song?",
+                    "If you had to propose, where on campus would you do it?",
+                    "Who’s the most dateable person in your club/society?"
+                ];
+
+                // Generate a random index to choose a random question
+                const randomIndex = Math.floor(Math.random() * questionArray.length);
+
+                // Return the randomly selected question
+                return questionArray[randomIndex];
+            }
+
+
+
+            let liked = [
+
+            ];
+
+            //Fetch the optionSet
+            document.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    console.log("calling get options .....");
+                    options = await getOptions(); // Call the leaderboard fetch function when the page loads
+                    //Check for exhausted users 
+                    console.log(options);
+                    console.log(options.createdAtTime);
+                    console.log(typeof (options.createdAtTime));
+                    if (options.message === 'Exhausted') {
+                        restrictTheUserForFurtherPollingWithTimer(options.createdAtTime);
+
+                        return;
+                    }
+                    console.log(options);
+                    if (options) {
+                        email = options.email;
+                        console.log(email);
+                        updateOptions();
+                    }
+                } catch (err) {
+                    console.log("Error in lodaing event listener for the page ....", err);
+                }
+            });
+
+
+            document.querySelector('.navbar .likes-button').addEventListener("click", (evt) => {
+                window.location.href = './likes.html';
+            });
+            document.querySelector('.navbar .leaderboard-button').addEventListener("click", (evt) => {
+                window.location.href = './leaderboard.html';
+            });
+
+
+
+            // Function to send data to the server with authorization header
+            async function sendLikeData(userEmail, liked, token) {
+                console.log("Inside sendLikedata ...");
+                const url = 'https://blitzprombackenddeploytry2.onrender.com/pollsData'; // Replace with your endpoint URL
+
+                const data = {
+                    userEmail: userEmail,
+                    likedEmails: liked
+                };
+
+                console.log("Data is :", data);
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}` // Including the authorization token
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        console.log('Success in sending liked data :', result);
+                    } else {
+                        console.error('Error in sending liked data :', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Request failed while sending liked data ', error);
+                }
+            }
+
+
+
+            function pollsExhausted() {
+                console.log("Inside polls exhausted ....");
+                //Send the liked data to the backend send the array of users 
+                //Restrict the user for further polling for next 3 hours this can be handled while entering th data of liked, by simply getting who liked this data
+                const token = localStorage.getItem('token');
+                const userEmail = email;
+                sendLikeData(userEmail, liked, token);
+
+
+
+
+                //Update the DOM accordingly
+                restrictTheUserForFurtherPolling();
+            }
+
+
+
+            function restrictTheUserForFurtherPolling() {
+                pollQuestion.style.display = 'none';
+                console.log("Inside restricting func ...");
+                //Make the user unable for further polling by changing the DOM
+                // Hide the option buttons and skip button
+                option1Btn.style.display = 'none';
+                option2Btn.style.display = 'none';
+                option3Btn.style.display = 'none';
+                option4Btn.style.display = 'none';
+                skipBtn.style.display = 'none';
+
+                // Create and display a "Polls Exhausted" message
+                const exhaustedMessage = document.createElement('p');
+                exhaustedMessage.textContent = 'Polls Exhausted';
+                exhaustedMessage.style.fontSize = '24px';
+                exhaustedMessage.style.color = 'red';
+                exhaustedMessage.style.textAlign = 'center';
+                exhaustedMessage.style.marginTop = '20px';
+
+                // Append the message to the body or to a specific container
+                document.body.appendChild(exhaustedMessage);
+
+            }
+
+
+
+
+            function restrictTheUserForFurtherPollingWithTimer(createdAtTime) {
+                pollQuestion.style.display = 'none';
+
+                console.log("Inside restricting func with timer ...");
+
+                // Hide the option buttons and skip button
+                option1Btn.style.display = 'none';
+                option2Btn.style.display = 'none';
+                option3Btn.style.display = 'none';
+                option4Btn.style.display = 'none';
+                skipBtn.style.display = 'none';
+
+                // Create and display a "Polls Exhausted" message
+                const exhaustedMessage = document.createElement('p');
+                exhaustedMessage.textContent = 'Polls Exhausted';
+                exhaustedMessage.style.fontSize = '24px';
+                exhaustedMessage.style.color = 'red';
+                exhaustedMessage.style.textAlign = 'center';
+                exhaustedMessage.style.marginTop = '20px';
+
+                // Create a countdown timer element
+                const countdownTimer = document.createElement('p');
+                countdownTimer.style.fontSize = '20px';
+                countdownTimer.style.color = 'black';
+                countdownTimer.style.textAlign = 'center';
+                countdownTimer.style.marginTop = '10px';
+
+                // Create a button element
+                const button = document.createElement('button');
+
+                // Set button text
+                button.innerText = 'Get Premium !';
+
+                // Style the button
+                button.style.backgroundColor = 'white'; // Green background
+                button.style.color = 'red'; // White text color
+                button.style.padding = '15px 32px'; // Padding
+                button.style.fontSize = '16px'; // Font size
+                button.style.border = '1px solid black'; // Remove border
+                button.style.borderRadius = '15px'; // Rounded corners
+                button.style.cursor = 'pointer'; // Pointer cursor on hover
+                button.style.transition = 'background-color 0.3s ease'; // Smooth background change on hover
+                button.style.marginLeft = '25vw'; // Pointer cursor on hover
+                button.style.marginTop = '25vh'; // Pointer cursor on hover
+
+
+                // Change background color on hover
+                button.addEventListener('mouseenter', () => {
+                    button.style.backgroundColor = '#45a049'; // Darker green on hover
+                });
+
+                // Reset background color when hover ends
+                button.addEventListener('mouseleave', () => {
+                    button.style.backgroundColor = '#4CAF50'; // Original green
+                });
+
+                // Add click event to redirect to another page
+                button.addEventListener('click', () => {
+                    window.location.href = './premiumOptions.html'; // Replace with your desired URL
+                });
+
+
+
+                // Append messages to the body or specific container
+                document.body.appendChild(exhaustedMessage);
+                document.body.appendChild(countdownTimer);
+                document.body.appendChild(button);
+
+                // Convert createdAtTime from string to Date object (UTC-based)
+                const createdAt = new Date(createdAtTime);
+
+                // Calculate expiration time (3 hours after createdAt)
+                const expirationTime = new Date(createdAt.getTime() + 3 * 60 * 60 * 1000);
+
+                function updateTimer() {
+                    const now = new Date(); // Get current time in UTC
+                    const timeLeft = expirationTime - now; // Calculate remaining time in milliseconds
+
+                    if (timeLeft <= 0) {
+                        countdownTimer.textContent = "You can now participate in polling!";
+                        return;
+                    }
+
+                    // Convert milliseconds to HH:MM:SS format
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    countdownTimer.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
+
+                    setTimeout(updateTimer, 1000); // Update timer every second
+                }
+
+                updateTimer(); // Start the countdown
+            }
+
+
+
+
+
+            function updateOptions() {
+                pollQuestion.style.display = 'block';
+                pollQuestion.innerText = updateQuestion();
+                if (clickCounts === 10) {
+                    pollsExhausted();
+                    return;
+                }
+                console.log("Inside updateOptions : ", options);
+
+                console.log(options);
+                const optionArray = options.options;
+                console.log(optionArray);
+                console.log(optionArray[clickCounts]);
+                const currentOptionSet = optionArray[clickCounts];
+
+                const optionDivs = document.querySelectorAll('.option-div');
+
+                optionDivs.forEach((div, index) => {
+                    const childs = div.children;
+
+                    console.log("Childrens : ", childs);
+
+                    const shortName = getShortName(currentOptionSet[index].name);
+                    const year = getYear(currentOptionSet[index].email);
+
+                    console.log(shortName, year)
+
+                    childs[0].innerText = shortName;
+                    childs[1].innerText = currentOptionSet[index].name;
+                    childs[2].innerText = year;
+                });
+
+            }
+
+
+
+
+            function option1Clicked() {
+                // clickCounts++;
+                updateOptions();
+
+                // console.log(clickCounts);
+                // console.log(options.options);
+                // console.log(options.options[clickCounts]);
+                // console.log(options.options[clickCounts][0]);
+                // console.log(options.options[clickCounts][0].email);
+
+                liked.push(options.options[clickCounts - 1][0].email);
+                console.log(liked);
+            }
+
+            function option2Clicked() {
+                // clickCounts++;
+                updateOptions();
+
+                // console.log(clickCounts);
+                // console.log(options.options);
+                // console.log(options.options[clickCounts]);
+                // console.log(options.options[clickCounts][0]);
+                // console.log(options.options[clickCounts][0].email);
+
+                liked.push(options.options[clickCounts - 1][1].email);
+                console.log(liked);
+            }
+
+            function option3Clicked() {
+                // clickCounts++;
+                updateOptions();
+
+                // console.log(clickCounts);
+                // console.log(options.options);
+                // console.log(options.options[clickCounts]);
+                // console.log(options.options[clickCounts][0]);
+                // console.log(options.options[clickCounts][0].email);
+
+                liked.push(options.options[clickCounts - 1][2].email);
+                console.log(liked);
+            }
+
+            function option4Clicked() {
+                // clickCounts++;
+                updateOptions();
+
+                // console.log(clickCounts);
+                // console.log(options.options);
+                // console.log(options.options[clickCounts]);
+                // console.log(options.options[clickCounts][0]);
+                // console.log(options.options[clickCounts][0].email);
+
+                liked.push(options.options[clickCounts - 1][3].email);
+                console.log(liked);
+            }
+
+            function skipClicked() {
+                // clickCounts++;
+                updateOptions();
+
+                // console.log(clickCounts);
+                // console.log(options.options);
+                // console.log(options.options[clickCounts]);
+                // console.log(options.options[clickCounts][0]);
+                // console.log(options.options[clickCounts][0].email);
+
+                // liked.push(options.options[clickCounts][0].email);
+                // console.log(liked);
+            }
+
+
+            document.querySelector('.navbar .profile-button').addEventListener("click", (evt) => {
+                evt.preventDefault();
+
+                console.log("Profile button clicked ...");
+                window.location.href = './profilePage.html';
+            });
+
+
+
+
+            option1Btn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+                console.log("Option one clikced  ....");
+                clickCounts++;
+                console.log(clickCounts);
+
+                option1Clicked();
+            });
+            option2Btn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                console.log("Option two clikced  ....");
+                clickCounts++;
+                console.log(clickCounts);
+                option2Clicked();
+            });
+            option3Btn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                console.log("Option three clikced  ....");
+                clickCounts++;
+                console.log(clickCounts);
+                option3Clicked();
+            });
+            option4Btn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                console.log("Option four clikced  ....");
+                clickCounts++;
+                console.log(clickCounts);
+                option4Clicked();
+            });
+            skipBtn.addEventListener('click', (evt) => {
+                evt.preventDefault();
+
+                console.log("skip clikced  ....");
+                clickCounts++;
+                console.log(clickCounts);
+                skipClicked();
+            });
+
+
+
+            const getOptions = async () => {
+                const token = localStorage.getItem("token");
+
+                console.log(token);
+
+                const response = await fetch('https://blitzprombackenddeploytry2.onrender.com/polls', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                console.log("The response for get options is : ", response);
+
+                const data = await response.json();
+
+                console.log(" The json data we get for get options is : ", data);
+
+                console.log(data.email);
+
+                return data;
+            };
+
+
+            // Function to extract short name
+            const getShortName = (name) => {
+                const parts = name.split(" ");
+                return parts.length > 1 ? parts.map(part => part[0]).join("") : parts[0][0];
+            };
+
+
+
+            // Function to extract year
+            const getYear = (email) => {
+                const yearCode = parseInt(email.substring(2, 4), 10);
+                return yearCode + 4;
+            };
+
+
+
+
+        </script>
+    </body>
+    <html>

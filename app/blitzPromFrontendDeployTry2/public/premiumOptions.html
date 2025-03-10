@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Plans</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .features h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #ffe8ff;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .plan {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .plan h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .plan p {
+            margin-bottom: 15px;
+            color: #e6e6ff;
+        }
+
+        .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffccff;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff73ff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #d161d1;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Premium Plans</h1>
+
+        <div class="features">
+            <h2>Premium Features</h2>
+            <p>All premium plans include:</p>
+            <ul>
+                <li>Access to open pool.</li>
+                <li>Extended one time poll limit.</li>
+                <li>Access to Make a match button.</li>
+                <li>Unhidden recieved likes.</li>
+            </ul>
+        </div>
+
+        <div class="plans">
+            <div class="plan">
+                <h2>Quick Access</h2>
+                <p>Perfect for short-term needs.</p>
+                <p class="price">Rs29 - 3 Hours</p>
+                <a href="#" class="buy-button buy-button1">Buy Now</a>
+            </div>
+
+            <div class="plan">
+                <h2>Half-Day Pass</h2>
+                <p>Enjoy premium features for half a day.</p>
+                <p class="price">Rs49 - 12 Hours</p>
+                <a href="#" class="buy-button buy-button2">Buy Now</a>
+            </div>
+
+            <div class="plan">
+                <h2>Full-Day Pass</h2>
+                <p>Experience premium for a full day.</p>
+                <p class="price">Rs69 - 24 Hours</p>
+                <a href="#" class="buy-button buy-button3">Buy Now</a>
+            </div>
+
+            <div class="plan">
+                <h2>Unlimited Access</h2>
+                <p>The ultimate plan with no expiration.</p>
+                <p class="price">Rs99 - Unlimited</p>
+                <a href="#" class="buy-button buy-button4">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const buyBtn1 = document.querySelector('.buy-button1');
+        const buyBtn2 = document.querySelector('.buy-button2');
+        const buyBtn3 = document.querySelector('.buy-button3');
+        const buyBtn4 = document.querySelector('.buy-button4');
+
+
+
+
+
+        buyBtn1.addEventListener('click', (evt) => {
+            localStorage.setItem('plan', '1');
+
+            window.location.href = './transactionPage.html';
+        });
+
+        buyBtn2.addEventListener('click', (evt) => {
+            localStorage.setItem('plan', '2');
+
+            window.location.href = './transactionPage.html';
+        });
+
+        buyBtn3.addEventListener('click', (evt) => {
+            localStorage.setItem('plan', '3');
+
+            window.location.href = './transactionPage.html';
+        });
+
+        buyBtn4.addEventListener('click', (evt) => {
+            localStorage.setItem('plan', '4');
+
+            window.location.href = './transactionPage.html';
+        });
+
+
+
+    </script>
+</body>
+
+</html>

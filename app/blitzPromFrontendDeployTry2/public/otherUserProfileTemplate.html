@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blitzProm</title>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+
+            background-image: url('./background-pic.png');
+            background-size: center;
+            background-position: cover;
+            background-repeat: no-repeat;
+            /* overflow: hidden; */
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        body {
+            background-color: aqua;
+            width: 100vw;
+            /* height: 100%; This isn't used because due to curve in lower part of th emobile display remains uncovered by the image.  */
+            height: 1000px;
+
+            /* background-image: url('./background-pic.png');
+        background-size: center;
+        background-position: cover;
+        background-repeat: no-repeat;
+        overflow: hidden; */
+
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+        }
+
+        nav {
+            width: auto;
+            height: 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: white;
+
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        nav h1 {
+            font-size: 2.25rem;
+            font-family: Rouge Script;
+
+            width: 60vw;
+            font-weight: 200;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            list-style-type: none;
+            gap: 8px;
+
+            width: 40vw;
+        }
+
+        nav li {
+            height: auto;
+            width: auto;
+
+        }
+
+        nav li button {
+            all: unset;
+            width: 25px;
+            height: 25px;
+            font-size: 0.9rem;
+            color: rgb(255, 255, 255);
+        }
+
+        nav img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: contain;
+        }
+
+
+        nav .leaderboard-button {
+            background-image: url('./leaderboard-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 20px;
+            height: 20px;
+
+        }
+
+        nav .likes-button {
+            border: none;
+            background-image: url('./likes-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 3px;
+            padding-top: 2px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+        }
+
+        nav .polls-button {
+            background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 5px;
+            padding-top: 3px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+        }
+
+        .main-div {
+            width: 100%;
+            height: auto;
+
+
+        }
+
+        .main-div .profile-h2 {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 2.25rem;
+
+        }
+
+        .main-div .profile-div {
+            width: 80%;
+            height: 200px;
+
+            margin-left: 10%;
+            border: 2px solid white;
+            border-radius: 25px;
+
+            background: linear-gradient(180deg, #480c8e, rgb(124, 34, 140), #174b9f);
+            backdrop-filter: blur(100px);
+            color: white;
+
+        }
+
+        .main-div .profile-div .name {
+            width: 100%;
+            height: 80px;
+
+            font-size: 1.5rem;
+            margin-left: 10px;
+
+            font-weight: 800px;
+            text-shadow: 2px 2px 8px white;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .main-div .profile-div .branch {
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        .main-div .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        /* .main-div .profile-div .edit-div {
+            width: 100%;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        } */
+
+        .main-div .profile-div .edit-div .insta {
+            color: white;
+            width: 100%;
+            height: 30px;
+            font-size: 1.25rem;
+            margin-left: 10px;
+        }
+
+        .main-div .profile-div .edit-div .insta a {
+            color: white;
+
+        }
+
+        .main-div .profile-div .edit-div .edit-btn {
+            all: unset;
+            height: auto;
+            width: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+
+        }
+
+        .main-div .profile-div .edit-btn i {
+            width: 100%;
+            height: 100%;
+
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+
+        .main-div .likes-h2 {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 1.5rem;
+        }
+
+        .main-div .likes-div {
+            width: 100%;
+            height: auto;
+        }
+
+        .main-div .likes-div>div {
+            width: 70%;
+            height: 75px;
+
+            background-color: rgb(227, 227, 227);
+            margin-left: 15%;
+            border-radius: 25px;
+
+            color: black;
+
+            margin-bottom: 30px;
+
+        }
+
+        .main-div .likes-div .name {
+            width: 100%;
+            height: 30px;
+            font-weight: 800;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* .main-div .likes-div .branch {
+            width: 100%;
+            height: 30px;
+            font-weight: 800;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
+
+        .main-div .likes-div .branch-year {
+            width: 100%;
+            /* height: 30px; */
+            font-weight: 800;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-div .likes-div .insta {
+            width: 100%;
+            /* height: 30px; */
+            font-weight: 800;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-div .likes-div .insta a {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <nav class="navbar">
+        <a href="hi.html">
+            <h1>Blitz Prom</h1>
+        </a>
+
+        <ul>
+            <li><button class="leaderboard-button"></button></li>
+            <li><button class="likes-button">83</button></li>
+            <li><button class="polls-button">7</button></li>
+
+        </ul>
+
+    </nav> -->
+
+    <div class="main-div">
+
+        <h2 class="profile-h2">Profile</h2>
+
+        <div class="profile-div">
+
+            <p class="name">Kunal Thapliyal</p>
+            <p class="branch">EE</p>
+            <p class="year">2023-27</p>
+            <!-- <p class="insta"><a href="">@_._vikas.07</a></p> -->
+            <div class="edit-div">
+                <p class="insta"><a href="">@_._vikas.07</a></p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+    </script>
+</body>
+
+</html>

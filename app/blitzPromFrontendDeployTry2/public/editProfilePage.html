@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blitzProm</title>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rouge+Script&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        body {
+            background-color: aqua;
+            width: 100vw;
+            height: 1000px;
+
+            background: linear-gradient(180deg, #5c0fb7, rgb(204, 56, 231), #1e63d4);
+        }
+
+        /* nav {
+            width: auto;
+            height: 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: white;
+
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        nav h1 {
+            font-size: 2.25rem;
+            font-family: Rouge Script;
+
+            width: 40vw;
+            font-weight: 200;
+
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            list-style-type: none;
+            gap: 8px;
+
+            width: 40vw;
+        }
+
+        nav li {
+            height: auto;
+            width: auto;
+
+        }
+
+        nav li button {
+            all: unset;
+            width: 25px;
+            height: 25px;
+            font-size: 0.9rem;
+            color: rgb(255, 255, 255);
+        }
+
+        nav img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: contain;
+        }
+
+
+        nav .leaderboard-button {
+            background-image: url('./leaderboard-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            width: 20px;
+            height: 20px;
+
+
+        }
+
+        nav .likes-button {
+            border: none;
+            background-image: url('./likes-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 3px;
+            padding-top: 2px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+
+
+        }
+
+        nav .polls-button {
+            background-image: url('./polls-pic.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            padding-right: 5px;
+            padding-top: 3px;
+
+            color: rgb(255, 255, 255);
+
+            font-size: 0.5rem;
+            font-weight: 100;
+
+
+        }
+
+        nav .profile-button {
+            display: flex;
+            justify-content: flex-end;
+            align-items: initial;
+
+            color: rgb(0, 0, 0);
+
+            font-size: 1.4rem;
+            font-weight: 100;
+
+        } */
+
+
+
+
+
+        .main-div {
+            width: 100%;
+            height: auto;
+
+            margin-top: 120px;
+
+        }
+
+
+        .main-div .profile-div {
+            width: 80%;
+            height: 65vh;
+
+            margin-left: 10%;
+            margin-top: 5vh;
+            border: 1px solid black;
+            border-radius: 25px;
+
+            background-color: rgb(162, 241, 255);
+        }
+
+        .main-div .profile-div .edit-btn {
+            all: unset;
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+            margin-top: 10px;
+
+        }
+
+        .main-div .profile-div .avatar-div {
+            width: 35%;
+            height: 22%;
+
+            margin-top: 40px;
+            margin-left: 32.5%;
+
+            border: 1px solid black;
+            border-radius: 50%;
+
+            background-color: rgb(175, 64, 255);
+
+            background-image: url('male-avatar1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .main-div .profile-div p:not(.password) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-div .profile-div .name {
+            all: unset;
+            width: 100%;
+            height: 70px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: rgb(255, 0, 0);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: 600;
+        }
+
+
+        .main-div .profile-div .branch {
+            width: 100%;
+            height: 30px;
+            font-size: 1.1rem;
+            color: black;
+
+            font-weight: 400;
+        }
+
+        .main-div .profile-div .year {
+            width: 100%;
+            height: 30px;
+            font-size: 1.1rem;
+            color: black;
+
+        }
+
+        .main-div .profile-div .instaId {
+            all: unset;
+            width: 100%;
+            height: 70px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgb(213, 62, 255);
+
+            font-weight: 600;
+        }
+
+        .main-div .profile-div .password-div {
+            width: 100%;
+            height: 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .main-div .profile-div .password-div input {
+            all: unset;
+            height: 100%;
+            width: 80%;
+            margin-left: 10%;
+            font-size: 1.25rem;
+
+            text-align: center;
+            color: rgb(0, 0, 0);
+
+        }
+
+        .main-div .profile-div .password-div input:focus {
+            border: 1px solid black;
+            border-radius: 10px;
+
+        }
+
+        /* .main-div .profile-div .password-div button {
+            all: unset;
+
+        } */
+
+        .main-div .profile-div .submit-button {
+            all: unset;
+
+            width: 40%;
+            margin-left: 30%;
+            height: 10%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+            margin-top: 20px;
+
+            color: red;
+            font-size: 1.5rem;
+            border: 1px solid grey;
+            border-radius: 15px;
+
+            background-color: rgb(255, 255, 255);
+        }
+
+
+
+
+
+
+
+
+
+
+        /* Container for the toggle button */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10%;
+            width: 100%;
+        }
+
+        .toggle-container p {
+            width: 80%;
+            height: 100%;
+        }
+
+        /* The toggle button */
+        .toggle-btn {
+            position: relative;
+            width: 20%;
+            height: 50%;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #000000;
+            border: 2px solid black;
+            margin-right: 10%;
+        }
+
+        /* The circle inside the toggle button */
+        .toggle-btn:before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-color: rgb(138, 138, 138);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        /* When the button is on */
+        .toggle-btn.on {
+
+            background-color: #000000;
+        }
+
+        /* Move the circle to the right when the button is on */
+        .toggle-btn.on:before {
+            transform: translateX(100%);
+            background-color: #7fff9f;
+        }
+
+        /* Hover effect */
+        .toggle-btn:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <nav class="navbar">
+        <a href="hi.html">
+            <h1>Blitz Prom</h1>
+        </a>
+
+        <ul>
+            <li><button class="leaderboard-button"></button></li>
+            <li><button class="likes-button">83</button></li>
+            <li><button class="polls-button">7</button></li>
+            <li><button type="button" class="profile-button"><i class="fa-solid fa-user"></i></button></li>
+
+        </ul>
+
+    </nav> -->
+
+    <div class="main-div">
+
+
+        <div class="profile-div">
+
+            <!-- <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button> -->
+
+            <div class="avatar-div">
+
+            </div>
+
+            <!-- <p class="name">Vikas Chandwara</p> -->
+            <input class="name" name="name" type="text" placeholder="">
+            <p class="branch">Electrical Engineering</p>
+            <p class="year">2023-27</p>
+            <!-- <p class="instaId"><a href="">@_._vikas.07</a></p> -->
+
+
+            <div class="toggle-container">
+                <p>Visiblity for open pool : </p>
+                <div class="toggle-btn" onclick="toggleSwitch()"></div>
+            </div>
+
+
+            <input class="instaId" name="instaId" type="text" placeholder="">
+
+            <div class="password-div">
+                <input class="password" name="password" type="text" placeholder="**********">
+                <!-- <p class="password">******</p> -->
+                <!-- <button class="password-toggle"><i class="fa-regular fa-eye-slash"></i></button> -->
+            </div>
+
+            <button class="submit-button"> SUBMIT </button>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        function redirectIfNotMobile() {
+            console.log("Inside device detect func ....");
+
+            // Get the user agent string and platform
+            const userAgent = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform.toLowerCase();
+            console.log("User Agent: ", userAgent); // Log the user  agent
+            console.log("Platform: ", platform); // Log the platform
+
+            // Screen size: mobile devices typically have a width less than 1024px
+            const screenWidth = window.innerWidth;
+            console.log("Screen Width: ", screenWidth); // Log the screen width
+
+            // Touch event detection (mobile devices support touch events)
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            console.log("Is Touch Device: ", isTouchDevice); // Log if touch device is detected
+
+            // Regular expression for mobile devices based on user-agent
+            const isMobileUserAgent = /iphone|ipod|android|webos|blackberry|iemobile|opera mini|mobile/.test(userAgent);
+            const isTabletUserAgent = /ipad|tablet|playbook/.test(userAgent);
+
+            // Combine checks to ensure the user is on a mobile or tablet device
+            const isMobile = (isMobileUserAgent || isTabletUserAgent || (isTouchDevice && screenWidth <= 1024));
+
+            // Log the final result of the check
+            console.log("Is Mobile (Final Check): ", isMobile);
+
+            // If not mobile or if user is on a PC, redirect them
+            if (!isMobile) {
+                console.log("Redirecting to non-mobile page...");
+                window.location.href = "./hello.html"; // Modify URL as needed
+            }
+        }
+
+        // Call the function after the page loads
+        window.onload = redirectIfNotMobile;
+
+
+
+
+
+        let visibleForOpenPool;
+        let isPremiumUser;
+
+        if (document.querySelector('.toggle-btn').classList.contains('on')) {
+            document.querySelector('.toggle-btn').classList.remove('on');
+        }
+
+        function toggleSwitch() {
+            if (isPremiumUser) {
+                if (visibleForOpenPool) {
+                    document.querySelector('.toggle-btn').classList.remove('on');
+                } else {
+                    document.querySelector('.toggle-btn').classList.add('on');
+                }
+                visibleForOpenPool = !visibleForOpenPool;
+            } else {
+                alert('To use this feature be the premium user first ....');
+            }
+
+            console.log(visibleForOpenPool);
+            console.log(document.querySelector('.toggle-btn').classList);
+        }
+
+        function initializeToggleBtn() {
+            if (isPremiumUser) {
+                if (visibleForOpenPool) {
+                    document.querySelector('.toggle-btn').classList.add('on');
+
+                } else {
+
+                }
+            } else {
+
+            }
+        }
+
+
+
+
+
+
+        //Fetch the profile info
+        document.addEventListener('DOMContentLoaded', async () => {
+            fetchProfile();
+
+        });
+
+        let profileData;
+
+
+        //<i class="fa-regular fa-eye"></i>  HelloWorld
+        // let password = "hello world";
+        // let passwordVisible = false;
+        // let openEyeIcon = '<i class="fa-regular fa-eye"></i>';
+        // let closedEyeIcon = '<i class="fa-regular fa-eye-slash">';
+
+        // const editBtn = document.querySelector('.main-div .profile-div .edit-btn');
+        const name = document.querySelector('.main-div .name');
+        const branch = document.querySelector('.main-div .branch');
+        const year = document.querySelector('.main-div .year');
+        const insta = document.querySelector('.main-div .instaId ');
+        const passwordP = document.querySelector('.main-div .profile-div .password')
+
+        // const passwordToggleBtn = document.querySelector('.main-div .profile-div .password-toggle');
+        const submitBtn = document.querySelector('.main-div .profile-div .submit-button');
+
+
+        submitBtn.addEventListener('click', (evt) => {
+            evt.preventDefault();
+
+            let newName = profileData.name;
+            let newInstaId = profileData.instaId;
+            let newPassword = profileData.password;
+
+            if (name.value.trim() !== "") {
+                newName = name.value.trim();
+            }
+
+            if (insta.value.trim() !== "") {
+                newInstaId = insta.value.trim();
+            }
+
+            if (passwordP.value.trim() !== "") {
+                newPassword = passwordP.value.trim();
+            }
+
+            const data = {
+                name: newName,
+                branch: profileData.branch,
+                year: profileData.year,
+                instaId: newInstaId,
+                password: newPassword
+
+            };
+
+            if (isPremiumUser) {
+                data['isPremiumUser'] = isPremiumUser;
+                data['upForOpenPool'] = visibleForOpenPool;
+            }
+
+            console.log(data);
+
+            updateProfile(data);
+
+
+        });
+
+
+        async function updateProfile(data) {
+            const url = 'https://blitzprombackenddeploytry2.onrender.com/updateProfile'; // Backend endpoint
+            const token = localStorage.getItem('token'); // Replace with your actual JWT token
+
+            console.log("The data which is being sent is : ", data);
+
+            try {
+                // Send the data via a PUT request to the backend
+                const response = await fetch(url, {
+                    method: 'PUT', // Use 'PUT' for updating resources
+                    headers: {
+                        'Content-Type': 'application/json', // Specify that we're sending JSON data
+                        'Authorization': `Bearer ${token}`, // Attach the JWT token in the Authorization header
+                    },
+                    body: JSON.stringify(data) // Send the data as a JSON string
+                });
+
+                // Handle the response
+                if (response.ok) {
+                    const result = await response.json(); // Assuming the backend sends a JSON response
+                    console.log('Profile updated successfully:', result);
+                    alert("Profile updated successfully ....");
+                    window.location.replace('./profilePage.html');
+                    // Handle the response (e.g., show success message, redirect, etc.)
+
+
+                } else {
+                    console.error('Error updating profile:', response.status, response.statusText);
+                    alert("Error in updating profile  ....");
+
+                    // Handle any error (e.g., show error message)
+                }
+            } catch (error) {
+                console.error('Request failed:', error);
+                alert("Error requesting profile updation ....");
+                // Handle network or other errors
+            }
+        }
+
+
+        // passwordToggleBtn.addEventListener('click', (evt) => {
+        //     evt.preventDefault();
+
+        //     console.log("Visiblity btn clicked ....");
+
+        //     if (passwordVisible) {
+        //         passwordP.innerText = password;
+        //         passwordToggleBtn.innerHTML = openEyeIcon;
+        //         passwordVisible = !passwordVisible;
+        //     } else {
+        //         passwordP.innerText = "**********";
+        //         passwordToggleBtn.innerHTML = closedEyeIcon;
+        //         passwordVisible = !passwordVisible;
+        //     }
+
+        // });
+
+        // logoutBtn.addEventListener('click', (evt) => {
+        //     evt.preventDefault();
+
+        //     if (localStorage.getItem('token')) {
+        //         localStorage.removeItem('token');
+        //     } else {
+        //         alert("Already logged out ....");
+        //     }
+        //     window.location.href = './hi.html';
+
+        // });
+
+        // editBtn.addEventListener('click', (evt) => {
+        //     evt.preventDefault();
+
+        //     if (localStorage.getItem('token')) {
+        //         window.location.href = './editProfilePage.html';
+
+        //     } else {
+        //         alert("Log in to use our service ....");
+        //         window.location.href = './hi.html';
+
+        //     }
+
+        // });
+
+        // document.querySelector('.navbar .leaderboard-button').addEventListener("click", (evt) => {
+        //     evt.preventDefault();
+        //     console.log("leaderboard button clicked ...");
+
+        //     if (localStorage.getItem('token')) {
+        //         window.location.href = './leaderboard.html';
+
+        //     } else {
+        //         alert("Log in to use our service ....");
+        //         window.location.href = './hi.html';
+
+        //     }
+        // });
+        // document.querySelector('.navbar .likes-button').addEventListener("click", (evt) => {
+        //     evt.preventDefault();
+        //     console.log("likes button clicked ...");
+
+        //     if (localStorage.getItem('token')) {
+        //         window.location.href = './likes.html';
+
+        //     } else {
+        //         alert("Log in to use our service ....");
+        //         window.location.href = './hi.html';
+
+        //     }
+
+        // });
+
+        // document.querySelector('.navbar .polls-button').addEventListener("click", (evt) => {
+        //     evt.preventDefault();
+
+        //     if (localStorage.getItem('token')) {
+
+        //         console.log("polls button clicked ...");
+        //         window.location.href = './pollPage.html';
+        //     } else {
+        //         alert("Log in to use our service ....");
+        //         window.location.href = './hi.html';
+
+        //     }
+
+        // });
+        // document.querySelector('.navbar .profile-button').addEventListener("click", (evt) => {
+        //     evt.preventDefault();
+
+        //     if (localStorage.getItem('token')) {
+
+        //         console.log("Profile button clicked ...");
+        //         location.reload();
+        //     } else {
+        //         alert("Log in to use our service ....");
+        //         window.location.href = './hi.html';
+
+        //     }
+
+
+        // });
+
+
+
+
+
+
+
+
+        //func to fetch profile details 
+        async function fetchProfile() {
+            const token = localStorage.getItem('token'); // Replace with your actual JWT token
+            const url = 'https://blitzprombackenddeploytry2.onrender.com/profile'; // Replace with your backend endpoint
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log(response);
+
+                if (response.ok) {
+                    const profile = await response.json();
+
+                    console.log(profile);
+
+                    profileData = profile;
+
+                    if (profileData.gender === "female") {
+                        document.querySelector('.main-div .profile-div .avatar-div').style.backgroundImage = 'url("./female-avatar1.jpg")';
+                    }
+
+                    console.log(profileData);
+
+                    // Update DOM elements with the profile details
+                    name.placeholder = profile.name;
+                    branch.textContent = getBranchName(profile.branch); // Assuming branch comes from email or response
+                    year.textContent = getYearRange(profile.year, profile.branch); // Assuming year comes from email or response
+                    const userHandle = profile.instaId;
+
+
+                    if (profile.isPremiumUser) {
+                        isPremiumUser = true;
+                        if (profile.upForOpenPool) {
+                            visibleForOpenPool = true;
+                        } else {
+                            visibleForOpenPool = false;
+                        }
+                    } else {
+                        isPremiumUser = false;
+                        visibleForOpenPool = false;
+                    }
+
+
+                    if (isPremiumUser) {
+                        initializeToggleBtn();
+                    }
+
+
+                    // if (!isPremiumUser) {
+                    //     document.querySelector('.toggle-btn').addEventListener('click', (evt) => {
+                    //         // evt.preventDefault();
+                    //         alert("Be a premium user to appear in the open pool ...");
+
+                    //     });
+                    // } else {
+                    //     if (visibleForOpenPool) {
+                    //         document.querySelector('.toggle-btn').classList.add('on');
+                    //     } else {
+
+                    //     }
+                    // }
+
+
+
+
+                    console.log("user handle is :", userHandle);
+                    if (userHandle !== null) {
+                        insta.placeholder = userHandle;  // If userHandle is not null, set it as the placeholder text.
+                    } else {
+                        insta.placeholder = "No insta handle provided";  // If userHandle is null, set a default placeholder.
+                    }
+                    passwordP.placeholder = profile.password;
+                } else {
+                    console.error('Failed to fetch profile:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error: in fetching the profile info ....', error);
+            }
+        }
+
+
+
+
+        function getYearRange(year, branchCode) {
+            const duration = branchCode.toLowerCase() === 'ar' ? 5 : 4;
+            const finalYear = Number(year.toString().slice(-2)) + duration;
+
+            console.log(finalYear);
+
+            return `${year}-${finalYear.toString()}'`;  // This ensures correct formatting
+        }
+
+
+        function getBranchName(branchCode) {
+            const code = branchCode.toLowerCase().toString().slice(-2);
+            const branches = {
+                ee: 'Electrical Engineering',
+                me: 'Mechanical Engineering',
+                ai: 'Artificial Intelligence',
+                cp: 'Computer Science and Engineering',
+                ce: 'Civil Engineering',
+                ar: 'Architecture',
+                it: 'Information Technology',
+                ec: 'Electronics and Communication',
+                bi: 'Biotechnology'
+            };
+
+            if (branches[code]) {
+                return branches[code];
+            } else {
+                return 'Unknown Branch';
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
